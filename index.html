@@ -1,0 +1,1155 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anggaran Bidang/UPT 2026</title><script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+<style>
+:root{--navy:#101c35;--blue:#2563eb;--teal:#0e9f96;--bg:#f3f6fb;--ink:#17233b;--muted:#6b7890;--line:#e3e9f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px/1.45 system-ui,Arial;color:var(--ink)}.app{display:flex;min-height:100vh}.side{width:245px;background:var(--navy);color:#dce7ff;padding:22px 14px;flex-shrink:0}.brand{font-size:18px;font-weight:850;color:#fff}.sub{font-size:11px;color:#9fb2d8;margin:5px 0 25px}.nav button{display:block;width:100%;text-align:left;padding:11px;border:0;border-radius:8px;background:transparent;color:#c7d4ee;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#263a60;color:white}.foot{font-size:10px;color:#91a4c8;margin:30px 9px}.main{flex:1;min-width:0}.top{height:65px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px}.content{max-width:1500px;margin:auto;padding:24px 26px}h1{font-size:23px;margin:0 0 5px}.desc{color:var(--muted);margin:0 0 20px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:17px}.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 3px 12px #17233b08}.klabel{font-size:12px;color:var(--muted)}.kvalue{font-size:20px;font-weight:800;margin:7px 0}.hint{font-size:11px;color:var(--muted)}.grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}.head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.head h3{font-size:15px;margin:0}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}input,select{border:1px solid #d8e0ec;border-radius:8px;padding:9px;background:white;color:var(--ink);font:inherit}input[type=number]{width:110px}.search{min-width:230px}.btn{border:0;border-radius:8px;background:var(--blue);color:white;padding:9px 13px;font-weight:650;cursor:pointer}.btn.secondary{background:#eaf0fb;color:#23406f}.btn.danger{background:#feecec;color:#b42318}.tag{background:#edf4ff;color:#2452a0;border-radius:20px;padding:4px 8px;font-size:10px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:9px}table{border-collapse:collapse;width:100%;min-width:760px;background:white}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;font-size:12px;vertical-align:middle}th{background:#f7f9fc;color:#65738b;font-size:10px;text-transform:uppercase;position:sticky;top:0}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.bar{height:8px;background:#edf1f7;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--teal)}.note{padding:11px;background:#fff8e8;border:1px solid #f4dfac;border-radius:9px;color:#775411;font-size:12px;margin:12px 0}.monthgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.month{border:1px solid var(--line);border-radius:9px;padding:11px}.month b{font-size:12px}.month strong{display:block;margin:5px 0}.month small{color:var(--muted)}.modal{position:fixed;inset:0;background:#07132988;display:none;align-items:center;justify-content:center;padding:15px;z-index:5}.modal.open{display:flex}.dialog{background:white;padding:22px;border-radius:14px;width:min(650px,100%);max-height:90vh;overflow:auto}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.field input{width:100%}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}@media(max-width:900px){.side{width:205px}.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}@media(max-width:650px){.app{display:block}.side{width:auto;padding:12px}.sub,.foot{display:none}.nav{display:flex;overflow:auto;gap:4px}.nav button{white-space:nowrap;width:auto;padding:9px}.top{height:52px;padding:0 14px}.content{padding:16px 12px}.monthgrid{grid-template-columns:repeat(2,1fr)}.search{min-width:145px}}
+.year-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.year-tools label{font-size:12px;color:#718096}.year-tools select{padding:8px 10px;border:1px solid #dbe2ea;border-radius:9px;background:#fff;color:#253247}@media(max-width:700px){.top{align-items:flex-start;gap:8px;flex-direction:column}.year-tools{width:100%}} 
+.level-pill{display:inline-block;white-space:nowrap;border-radius:6px;background:#eef3fb;color:#425875;padding:4px 7px;font-size:10px;font-weight:700;text-transform:uppercase}.tree-node td{background:#f8faff;border-top:1px solid #e4eaf3}.tree-program td{background:#eaf0fb}.tree-kegiatan td{background:#f1f5fc}.tree-subkegiatan td{background:#f7f9fd}.tree-aktivitas td{background:#fff}.tree-account td{background:#fff}.tree-account .hint{font-size:11px;color:#758196;margin-top:3px}.tree-table td{vertical-align:middle}.tree-table th:first-child{min-width:340px}.tree-table th:nth-child(2),.tree-table td:nth-child(2){min-width:76px}.tree-table th:nth-child(3),.tree-table td:nth-child(3){min-width:76px}.tree-table th:nth-child(4),.tree-table td:nth-child(4){min-width:112px}.tree-table th:nth-child(5),.tree-table td:nth-child(5){min-width:118px}
+.tablewrap{position:relative;overflow:auto;max-height:72vh}
+.tablewrap table thead th{position:sticky;top:0;z-index:5;background:#eaf0f7}
+#bdtable .tablewrap table thead th:first-child,.actual-year-table thead th:first-child{left:0;z-index:7}
+#bdtable .tablewrap table tbody td:first-child,.actual-year-table tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
+#bdtable .tablewrap table tfoot th{position:sticky;bottom:0;z-index:4;background:#eaf0f7}
+.actual-year-table{min-width:1500px}
+.actual-year-table th,.actual-year-table td{white-space:nowrap}.actual-month-cell{min-width:112px;vertical-align:top}.actual-month-input{width:104px;max-width:104px;text-align:right;padding:7px 5px!important;font-size:12px}.breakdown-hint{display:block;font-size:10px;color:#778397;text-align:right;margin-top:3px;white-space:nowrap}.actual-year-table td:first-child{min-width:190px;white-space:normal}.month-heading{text-align:center!important}.spj-plan-table{min-width:650px}.spj-plan-table td:first-child{white-space:normal;min-width:330px}.spj-plan-table td:nth-child(2),.spj-plan-table td:nth-child(3){white-space:nowrap}@media(max-width:650px){.spj-plan-table{min-width:570px}}\n
+#bdtable .breakdown-global-table{min-width:1120px}
+#bdtable .breakdown-global-table th:first-child,#bdtable .breakdown-global-table td:first-child{position:sticky;left:0;min-width:230px;width:230px;max-width:230px;z-index:6;background:#fff}
+#bdtable .breakdown-global-table th:nth-child(2),#bdtable .breakdown-global-table td:nth-child(2){position:sticky;left:230px;min-width:125px;z-index:6;background:#f3f6fb}
+#bdtable .breakdown-global-table thead th:first-child,#bdtable .breakdown-global-table thead th:nth-child(2){z-index:9;background:#eaf0f7}
+#bdtable .breakdown-global-table tfoot th:first-child,#bdtable .breakdown-global-table tfoot th:nth-child(2){z-index:8;background:#eaf0f7}
+
+.actual-year-table tr.tree-program td{background:#dbeafe!important;color:#173b70;font-weight:700}
+.actual-year-table tr.tree-kegiatan td{background:#e8f1ff!important;color:#1d4e89;font-weight:700}
+.actual-year-table tr.tree-subkegiatan td{background:#eff6ff!important;color:#245b91;font-weight:700}
+.actual-year-table tr.tree-aktivitas td{background:#f1f5f9!important;color:#334155;font-weight:700}
+.actual-year-table tr.tree-account td{background:#fff!important;color:#1f2937;font-weight:400}
+.actual-year-table tr.tree-node td:first-child{z-index:4}
+
+#bdtable .breakdown-global-table th:first-child,#bdtable .breakdown-global-table td:first-child{font-size:11px;line-height:1.35}
+#bdtable .breakdown-global-table th:nth-child(2),#bdtable .breakdown-global-table td:nth-child(2){min-width:125px;width:125px}
+
+.spj-plan-table{min-width:1120px}
+#plantable .spj-plan-table th:first-child,#plantable .spj-plan-table td:first-child{position:sticky;left:0;min-width:230px;width:230px;max-width:230px;z-index:6;background:#fff}
+#plantable .spj-plan-table th:nth-child(2),#plantable .spj-plan-table td:nth-child(2){position:sticky;left:230px;min-width:125px;z-index:6;background:#f3f6fb}
+#plantable .spj-plan-table thead th:first-child,#plantable .spj-plan-table thead th:nth-child(2){z-index:9;background:#eaf0f7}
+#plantable .spj-plan-table tfoot th:first-child,#plantable .spj-plan-table tfoot th:nth-child(2){z-index:8;background:#eaf0f7}
+
+.spj-plan-table{min-width:720px}
+#plantable .spj-plan-table th:first-child,#plantable .spj-plan-table td:first-child{position:sticky;left:0;min-width:300px;width:300px;max-width:300px;z-index:6;background:#fff}
+#plantable .spj-plan-table thead th:first-child{z-index:9;background:#eaf0f7}
+#plantable .spj-plan-table tfoot th:first-child{z-index:8;background:#eaf0f7}
+.spj-trash-btn{width:34px;height:34px;border:0;border-radius:9px;background:#feecec;color:#b42318;cursor:pointer;font-size:16px;display:inline-flex;align-items:center;justify-content:center}.spj-trash-btn:hover{background:#fbd5d5}\n
+/* Modal Tambah Manual: keep dialog above sticky table headers and constrain controls */
+.modal{z-index:10000;isolation:isolate}
+.modal .dialog{position:relative;z-index:10001;width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow-y:auto;overflow-x:hidden;padding:22px}
+.manual-spj-field{width:100%;min-width:0}
+.manual-spj-field select,.manual-spj-field input{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.manual-spj-field select{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+@media(max-width:650px){.modal{padding:10px;align-items:center}.modal .dialog{width:100%;max-height:calc(100dvh - 20px);padding:16px}}
+
+#printPlanArea{display:none}
+@media print{
+ body.spj-printing>*:not(#printPlanArea){display:none!important}
+ body.spj-printing #printPlanArea{display:block!important;position:static!important;width:100%!important;padding:0!important;margin:0!important}
+ body.spj-printing #printPlanArea *{visibility:visible!important}
+ body.spj-printing #printPlanArea .printbar{display:none!important}
+ @page{size:A4 landscape;margin:12mm}
+}
+</style>
+<meta name="theme-color" content="#0b1730">
+<meta name="application-name" content="Kontrol Anggaran Bidang UPT">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.6.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
+<div class="modal" id="modal"><div class="dialog"><h2 id="mtitle">Edit Anggaran</h2><div id="mbody"></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Batal</button><button class="btn" id="modalSave" onclick="saveItem()">Simpan</button></div></div></div>
+<script>
+const seed=[],months=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+localStorage.removeItem('simKontrolAnggaran2026');
+let activeYear=Number(localStorage.getItem('simAnggaranActiveYear')||2026),page='dashboard',editing=null,componentTarget=null,componentDraft=[];
+function readYearData(y){let saved=localStorage.getItem('simAnggaranData_'+y);if(saved)return JSON.parse(saved);if(y===2026){let legacy=localStorage.getItem('simKontrolAnggaran2026_v8')||localStorage.getItem('simKontrolAnggaran2026_v7');if(legacy)return JSON.parse(legacy)}return []}
+let db=readYearData(activeYear);
+function readPlanState(kind){try{return JSON.parse(localStorage.getItem('simSPJ_'+kind+'_'+activeYear)||'{}')}catch(e){return {}}}
+let spjDeferred=readPlanState('deferred'),spjManual=readPlanState('manual');
+function savePlanState(){localStorage.setItem('simSPJ_deferred_'+activeYear,JSON.stringify(spjDeferred));localStorage.setItem('simSPJ_manual_'+activeYear,JSON.stringify(spjManual))}
+function spjManualValue(id,m){return spjManual[m]&&Object.prototype.hasOwnProperty.call(spjManual[m],id)?Number(spjManual[m][id])||0:null}
+function spjShownValue(x,m){let v=spjManualValue(x.id,m);return v===null?spjMonthlyPlan(x,m):v}
+function spjDeferredHas(id,m){return !!(spjDeferred[m]&&spjDeferred[m].includes(id))}
+function spjDisplayLabel(x){return `<b>${esc(x.subKegiatan||'Sub Kegiatan belum diisi')}</b><div style="font-weight:700;color:#2452a0;margin-top:3px">${esc(x.aktivitas||x.activity||'Aktivitas belum diisi')}</div><div class="hint" style="margin-top:5px">${esc(x.account||'')}</div>`}
+function deferSpj(id,m){if(!spjDeferred[m])spjDeferred[m]=[];if(!spjDeferred[m].includes(id))spjDeferred[m].push(id);savePlanState();renderPlan()}
+function openManualSpj(m){
+ const options=db.map(x=>({x,label:[x.aktivitas||x.activity||'Tanpa Aktivitas',x.account||'Rekening belum diisi'].filter(Boolean).join(' — ')}));
+ document.getElementById('mtitle').textContent='Tambah Rekening Manual — '+months[m];
+ document.getElementById('mbody').innerHTML=`<div class="field manual-spj-field"><label for="manualAccount">Aktivitas — Rekening Belanja</label><select id="manualAccount" onchange="updateManualBalance(${m})"><option value="">Pilih aktivitas dan rekening</option>${options.map(o=>`<option value="${o.x.id}">${esc(o.label)}</option>`).join('')}</select></div><div class="note" id="manualBalance">Pilih rekening untuk melihat sisa pagu semester.</div><div class="field manual-spj-field" style="margin-top:14px"><label for="manualAmount">Nominal Rencana SPJ / yang akan direalisasikan</label><input id="manualAmount" type="text" inputmode="numeric" placeholder="Masukkan nominal" oninput="this.value=formatNominal(this.value)"></div><div class="hint" style="margin-top:8px">Nominal tidak boleh melebihi sisa pagu semester rekening terpilih.</div>`;
+ document.getElementById('modalSave').textContent='Simpan Rencana';document.getElementById('modalSave').onclick=()=>saveManualSpj(m);
+ const modal=document.getElementById('modal');modal.classList.add('open');
+}
+function updateManualBalance(m){let id=document.getElementById('manualAccount').value,x=db.find(z=>z.id===id),el=document.getElementById('manualBalance');if(!el)return;if(!x){el.textContent='Pilih rekening untuk melihat sisa pagu semester.';return}let remain=spjRemainingPool(x,m),already=spjManualValue(id,m);el.innerHTML=`Sisa pagu semester rekening ini: <b>${money(remain)}</b>${already!==null?`<br>Nominal manual saat ini: <b>${money(already)}</b>`:''}`}
+function saveManualSpj(m){let id=document.getElementById('manualAccount').value,x=db.find(z=>z.id===id),amount=parseNominal(document.getElementById('manualAmount').value);if(!x){alert('Pilih rekening belanja terlebih dahulu.');return}if(amount<=0){alert('Masukkan nominal lebih dari nol.');return}let limit=spjRemainingPool(x,m);if(amount>limit){alert('Nominal melebihi sisa pagu semester rekening: '+money(limit));return}if(!spjManual[m])spjManual[m]={};spjManual[m][id]=amount;spjDeferred[m]=(spjDeferred[m]||[]).filter(v=>v!==id);savePlanState();closeModal();renderPlan()}
+function removeManualSpj(id,m){if(!confirm('Hapus rencana manual rekening ini dari bulan '+months[m]+'? Data rekening dan anggaran tidak akan dihapus.'))return;if(spjManual[m])delete spjManual[m][id];savePlanState();renderPlan()}
+
+let structures=JSON.parse(localStorage.getItem('simKontrolAnggaran2026_v9_structures')||'null')||[];
+db.forEach(x=>{if(!x.components)x.components={};if(x.originalBudget===undefined||x.originalBudget===null)x.originalBudget=+x.budget||0;if(x.budget===undefined)x.budget=+x.originalBudget||0;if(x.bidang===undefined)x.bidang='';if(x.program===undefined)x.program='';if(x.kegiatan===undefined)x.kegiatan='';if(x.subKegiatan===undefined)x.subKegiatan='';if(x.aktivitas===undefined)x.aktivitas=x.activity||'';if(x.keterangan===undefined)x.keterangan='';});
+if(!structures.length){let seen=new Set();db.forEach(x=>{let z={bidang:x.bidang||'',program:x.program||'',kegiatan:x.kegiatan||'',subKegiatan:x.subKegiatan||'',aktivitas:x.aktivitas||x.activity||''},k=JSON.stringify(z);if(!seen.has(k)&&Object.values(z).some(Boolean)){seen.add(k);structures.push({id:'STR'+Date.now()+Math.random(),...z})}})}
+db.forEach(x=>{if(!x.structureId){let z=structures.find(a=>a.bidang===(x.bidang||'')&&a.program===(x.program||'')&&a.kegiatan===(x.kegiatan||'')&&a.subKegiatan===(x.subKegiatan||'')&&a.aktivitas===(x.aktivitas||x.activity||''));if(z)x.structureId=z.id}});
+function persistStructures(){localStorage.setItem('simKontrolAnggaran2026_v9_structures',JSON.stringify(structures))}
+const sum=a=>a.reduce((s,n)=>s+(+n||0),0),money=n=>'Rp '+(+n||0).toLocaleString('id-ID',{maximumFractionDigits:0}),parseNominal=v=>Number(String(v??'').replace(/[^0-9]/g,''))||0,formatNominal=v=>{let n=String(v??'').replace(/[^0-9]/g,'');return n?n.replace(/\B(?=(\d{3})+(?!\d))/g,'.'):''},pct=(a,b)=>b?a/b*100:0,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function persist(){localStorage.setItem('simAnggaranData_'+activeYear,JSON.stringify(db));if(activeYear===2026)localStorage.setItem('simKontrolAnggaran2026_v8',JSON.stringify(db));persistStructures()}
+function currentUnitName(){let a=db.find(x=>x.bidang&&x.bidang.trim()),z=structures.find(x=>x.bidang&&x.bidang.trim()),raw=(a?a.bidang.trim():z?z.bidang.trim():'Nama Bidang/UPT');/* Kode nomenklatur tetap tersimpan dan dipakai pada data; hanya disembunyikan dari judul aplikasi. */return raw.replace(/^\s*\d+(?:\.\d+)+\s*[-–:]?\s*/,'').trim()||'Nama Bidang/UPT'}
+function updateAppName(){let n=currentUnitName(),brand=document.getElementById('appBrand'),label=document.getElementById('yearLabel');if(brand)brand.innerHTML=`ANGGARAN <span style="color:#54d6d0">${esc(n)} ${activeYear}</span>`;if(label)label.textContent=`TA ${activeYear} · Lokal`;document.title=`Anggaran ${n} ${activeYear}`}
+function changeYear(value){let y=Number(value);if(!Number.isInteger(y)||y<2000||y>2100)return;persist();activeYear=y;localStorage.setItem('simAnggaranActiveYear',String(y));db=readYearData(y);db.forEach(x=>{if(!x.components)x.components={};if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);if(x.originalBudget==null)x.originalBudget=+x.budget||0;if(x.budget==null)x.budget=+x.originalBudget||0});let sel=document.getElementById('yearSelect');if(sel)sel.value=String(y);updateAppName();render()}
+function hierarchy(x,compact=false){let a=[['Bidang / UPT',x.bidang],['Program',x.program],['Kegiatan',x.kegiatan],['Sub Kegiatan',x.subKegiatan],['Aktivitas',x.aktivitas||x.activity]] .filter(v=>String(v[1]||'').trim());return a.length?a.map((v,i)=>`<div style="${compact?'font-size:11px;':''} ${i===a.length-1?'font-weight:700;':''}"><span style="color:#718096">${v[0]}:</span> ${esc(v[1])}</div>`).join(''):'<span style="color:#98a2b3">Belum diisi</span>'}
+document.addEventListener('input',e=>{if(e.target.classList.contains('money-input')){let p=e.target.selectionStart,old=e.target.value;e.target.value=formatNominal(old);if(document.activeElement===e.target){let delta=e.target.value.length-old.length;try{e.target.setSelectionRange(Math.max(0,p+delta),Math.max(0,p+delta))}catch(_){}}}});
+function total(k){return sum(db.map(x=>k==='budget'?x.budget:k==='originalBudget'?(x.originalBudget??x.budget):sum(x[k])))}
+function budgetDelta(x){return (+x.budget||0)-(+((x.originalBudget??x.budget))||0)}
+function go(p){
+ const validPages=['dashboard','rekening','breakdown','rencana','realisasi','laporan'];
+ if(!validPages.includes(p))return;
+ page=p;
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.p===p));
+ render();
+}
+document.querySelector('.nav').onclick=e=>{let b=e.target.closest('button[data-p]');if(b)go(b.dataset.p)};
+function render(){
+ const titles={dashboard:'Dashboard Anggaran '+activeYear,rekening:'Data Anggaran / Rekening',breakdown:'Breakdown Anggaran Bulanan '+activeYear,rencana:'Rencana SPJ Bulanan '+activeYear,realisasi:'Realisasi Anggaran '+activeYear,laporan:'Rekapitulasi Tahunan '+activeYear};
+ const views={dashboard:()=>dashboard(),rekening:()=>rekening(),breakdown:()=>breakdown(),rencana:()=>rencana(),realisasi:()=>renderRealisasiAnggaranPage(),laporan:()=>laporan()};
+ const viewFn=page==='realisasi'?renderRealisasiAnggaranPage:(views[page]||views.dashboard);
+ document.getElementById('title').textContent=titles[page]||titles.dashboard;
+ try{
+  document.getElementById('view').innerHTML=viewFn();
+ }catch(error){
+  console.error('Gagal menampilkan halaman '+page+':',error);
+  document.getElementById('view').innerHTML=`<div class="panel" style="padding:20px"><h2>Halaman tidak dapat ditampilkan</h2><p>Terjadi kesalahan saat menyusun tampilan. Detail: ${esc(error&&error.message?error.message:String(error))}</p></div>`;
+ }
+ updateAppName();
+}
+function dashboard(){let b=total('budget'),p=total('plan'),a=total('actual');return `<h1>Dashboard Anggaran ${activeYear}</h1><p class="desc">Pemantauan pagu, rencana penarikan per bulan, realisasi, dan sisa anggaran.</p><div class="cards"><div class="card"><div class="klabel">Total Pagu Baru</div><div class="kvalue">${money(b)}</div><div class="hint">Pagu murni: ${money(total('originalBudget'))} · Selisih: ${money(b-total('originalBudget'))}</div></div><div class="card"><div class="klabel">Total Breakdown</div><div class="kvalue">${money(p)}</div><div class="hint">Rencana alokasi 12 bulan</div></div><div class="card"><div class="klabel">Realisasi</div><div class="kvalue">${money(a)}</div><div class="hint">${pct(a,b).toFixed(1)}% dari pagu</div></div><div class="card"><div class="klabel">Sisa Pagu</div><div class="kvalue">${money(b-a)}</div><div class="hint">Pagu dikurangi realisasi</div></div></div><div class="grid2"><div class="panel"><div class="head"><h3>Rencana vs Realisasi Bulanan</h3></div>${months.map((m,i)=>{let pl=sum(db.map(x=>x.plan[i]||0)),ac=sum(db.map(x=>x.actual[i]||0));return `<div style="margin:13px 0"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><b>${m}</b><span>${money(pl)} / ${money(ac)}</span></div><div class="bar"><i style="width:${Math.min(100,pct(ac,pl||b))}%"></i></div></div>`}).join('')}</div><div class="panel"><div class="head"><h3>Kontrol Anggaran</h3></div><div class="klabel">Realisasi terhadap pagu</div><div class="kvalue">${pct(a,b).toFixed(2)}%</div><div class="bar" style="height:12px;margin:10px 0 20px"><i style="width:${Math.min(100,pct(a,b))}%"></i></div><p>Rencana SPJ / breakdown: <b>${money(p)}</b></p><p>Realisasi tercatat: <b>${money(a)}</b></p><p>Sisa pagu: <b>${money(b-a)}</b></p><div class="note">Rencana SPJ adalah jadwal/alokasi kebutuhan bulanan berdasarkan sheet Breakdown, bukan pembuatan dokumen SPJ.</div></div></div><div class="panel"><div class="head"><h3>Rencana Bulan Terdekat</h3><button class="btn secondary" onclick="go('rencana')">Lihat rencana</button></div>${monthlyCards()}</div>`}
+function rowsTable(rows,actions=true){
+ let groups=new Map();
+ rows.forEach(x=>{let k=[x.program||'',x.kegiatan||'',x.subKegiatan||''].join('\u241f');if(!groups.has(k))groups.set(k,[]);groups.get(k).push(x)});
+ let body='';
+ for(let items of groups.values()){
+  items.forEach((x,i)=>{let span=i===0?items.length:0;body+=`<tr>${i===0?`<td rowspan="${span}">${esc(x.program||'—')}</td><td rowspan="${span}">${esc(x.kegiatan||'—')}</td><td rowspan="${span}">${esc(x.subKegiatan||'—')}</td>`:''}<td><b>${esc(x.account)}</b><div class="hint">${esc(x.bidang||'')}</div></td><td>${esc(x.keterangan||'—')}</td><td class="num">${Number(x.qty??0).toLocaleString('id-ID')}</td><td>${esc(x.unit)}</td><td class="num">${money(x.unitPrice)}</td><td class="num">${money(x.originalBudget??x.budget)}</td><td class="num"><b>${money(x.budget)}</b></td><td class="num" style="color:${budgetDelta(x)<0?'#b42318':budgetDelta(x)>0?'#087443':'inherit'}">${budgetDelta(x)>0?'+':''}${money(budgetDelta(x))}</td>${actions?`<td><button class="btn secondary" onclick="editItem('${x.id}')">Ubah</button></td>`:''}</tr>`});
+ }
+ return `<div class="tablewrap"><table><thead><tr><th>Program</th><th>Kegiatan</th><th>Sub Kegiatan</th><th>Rekening Belanja</th><th>Keterangan</th><th class="num">Qty</th><th>Satuan</th><th class="num">Harga Satuan</th><th class="num">Pagu Murni</th><th class="num">Pagu Baru</th><th class="num">Selisih</th>${actions?'<th>Aksi</th>':''}</tr></thead><tbody>${body||`<tr><td colspan="${actions?12:11}" style="text-align:center;padding:28px;color:#6b7890">Belum ada data anggaran. Klik “Tambah Rekening” untuk mulai mengisi data.</td></tr>`}</tbody></table></div>`
+}
+function budgetTree(query='',levelFilter='all'){
+ const norm=s=>String(s||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('id');
+ const q=norm(query);
+ const matches=(s)=>!q||[s.bidang,s.program,s.kegiatan,s.subKegiatan,s.aktivitas].some(v=>norm(v).includes(q));
+ const accountMatches=x=>!q||[x.account,x.keterangan,x.bidang,x.program,x.kegiatan,x.subKegiatan,x.aktivitas,x.activity].some(v=>norm(v).includes(q));
+ const structuresView=structures.filter(s=>matches(s)||db.some(x=>x.structureId===s.id&&accountMatches(x)));
+ let roots=new Map();
+ const getNode=(map,key,label,level)=>{if(!map.has(key))map.set(key,{key,label,level,children:new Map(),accounts:[],structureIds:[]});let n=map.get(key);if(!n.label&&label)n.label=label;return n};
+ const attachStructure=s=>{
+  let p=getNode(roots,norm(s.program)||'(tanpa program)',s.program||'Tanpa Program','Program');
+  let k=getNode(p.children,norm(s.kegiatan)||'(tanpa kegiatan)',s.kegiatan||'Tanpa Kegiatan','Kegiatan');
+  let sk=getNode(k.children,norm(s.subKegiatan)||'(tanpa sub kegiatan)',s.subKegiatan||'Tanpa Sub Kegiatan','Sub Kegiatan');
+  let a=getNode(sk.children,norm(s.aktivitas)||'(tanpa aktivitas)',s.aktivitas||'Tanpa Aktivitas','Aktivitas');
+  if(s.id&&!a.structureIds.includes(s.id))a.structureIds.push(s.id);
+ };
+ structuresView.forEach(attachStructure);
+ // Include records even if their linked structure was removed or is incomplete.
+ db.forEach(x=>{
+  let linked=structures.find(s=>s.id===x.structureId);
+  attachStructure(linked||{id:x.structureId,bidang:x.bidang,program:x.program,kegiatan:x.kegiatan,subKegiatan:x.subKegiatan,aktivitas:x.aktivitas||x.activity});
+ });
+ db.filter(accountMatches).forEach(x=>{
+  let s=structures.find(z=>z.id===x.structureId)||x;
+  let p=roots.get(norm(s.program)||'(tanpa program)');if(!p)return;
+  let k=p.children.get(norm(s.kegiatan)||'(tanpa kegiatan)');if(!k)return;
+  let sk=k.children.get(norm(s.subKegiatan)||'(tanpa sub kegiatan)');if(!sk)return;
+  let a=sk.children.get(norm(s.aktivitas||s.activity)||'(tanpa aktivitas)');if(!a)return;
+  if(!a.accounts.some(v=>v.id===x.id))a.accounts.push(x);
+ });
+ const changed=db.some(x=>Number(x.budget||0)!==Number(x.originalBudget??x.budget??0));
+ const accountHtml=x=>`<tr class="tree-account"><td><div style="padding-left:58px"><b>${esc(x.account)}</b><div class="hint">${esc(x.keterangan||'')}</div></div></td><td class="num">${Number(x.qty)||0}</td><td>${esc(x.unit||'')}</td><td class="num">${money(x.unitPrice||0)}</td><td class="num">${money(x.originalBudget??x.budget)}</td>${changed?`<td class="num"><b>${money(x.budget)}</b></td>`:''}<td><button class="btn secondary" onclick="editItem('${x.id}')">Ubah</button></td></tr>`;
+ const renderNode=(n)=>{
+  let children=[...n.children.values()],isActivity=n.level==='Aktivitas';
+  let all=[];
+  const collect=z=>{if(z.level==='Aktivitas')all.push(...z.accounts);else [...z.children.values()].forEach(collect)};
+  collect(n);
+  let pure=sum(all.map(x=>x.originalBudget??x.budget));
+  let budget=sum(all.map(x=>x.budget));
+  if(levelFilter!=='all'&&levelFilter!==n.level)return children.map(renderNode).join('');
+  let indent=({Program:0,Kegiatan:18,'Sub Kegiatan':36,Aktivitas:54}[n.level]);
+  let row=`<tr class="tree-node tree-${['program','kegiatan','subkegiatan','aktivitas'][n.level]}"><td><div style="display:flex;align-items:center;gap:8px;padding-left:${indent}px"><span class="level-pill">${n.level}</span><b>${esc(n.label)}</b></div></td><td></td><td></td><td></td><td class="num">${money(pure)}</td>${changed?`<td class="num"><b>${money(budget)}</b></td>`:''}<td>${isActivity?`<button class="btn" onclick="editItem('', '${(n.structureIds||[])[0]||''}')">＋ Rekening</button>`:''}</td></tr>`;
+  if(isActivity)row+=n.accounts.map(accountHtml).join('');
+  else if(levelFilter==='all')row+=children.map(renderNode).join('');
+  return row;
+ };
+ let body=[...roots.values()].map(renderNode).join('');
+ if(!body)return `<div style="padding:28px;text-align:center;color:#6b7890">Belum ada struktur nomenklatur. Buat Program, Kegiatan, Sub Kegiatan, dan Aktivitas terlebih dahulu.</div>`;
+ return `<div class="tablewrap"><table class="tree-table"><thead><tr><th>Program / Kegiatan / Sub Kegiatan / Aktivitas / Rekening</th><th class="num">Qty</th><th>Satuan</th><th class="num">Harga Satuan</th><th class="num">Pagu Murni</th>${changed?'<th class="num">Pagu Baru</th>':''}<th>Aksi</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function rekening(){return `<h1>Data Anggaran</h1><p class="desc">Kelola nomenklatur secara terpisah. Struktur yang sama cukup dibuat sekali, lalu dipilih saat menambahkan rekening.</p><div class="panel"><div class="head"><h3>Master Bidang / UPT dan Nomenklatur</h3><span class="tag">${structures.length} struktur tersimpan</span></div><div class="note">Isi Bidang/UPT, Program, Kegiatan, Sub Kegiatan, dan Aktivitas pada bagian ini terlebih dahulu. Setelah disimpan, struktur dapat dipakai berulang kali untuk banyak rekening.</div><div class="formgrid"><div class="field" style="grid-column:1/-1"><label>Bidang / UPT</label><input id="sBidang" list="listBidang" placeholder="Pilih atau ketik Bidang / UPT"><datalist id="listBidang">${[...new Set(structures.map(z=>z.bidang).filter(Boolean))].map(v=>`<option value="${esc(v)}">`).join('')}</datalist></div><div class="field" style="grid-column:1/-1"><label>Program</label><input id="sProgram" list="listProgram" placeholder="Pilih atau ketik Program"><datalist id="listProgram">${[...new Set(structures.map(z=>z.program).filter(Boolean))].map(v=>`<option value="${esc(v)}">`).join('')}</datalist></div><div class="field" style="grid-column:1/-1"><label>Kegiatan</label><input id="sKegiatan" list="listKegiatan" placeholder="Pilih atau ketik Kegiatan"><datalist id="listKegiatan">${[...new Set(structures.map(z=>z.kegiatan).filter(Boolean))].map(v=>`<option value="${esc(v)}">`).join('')}</datalist></div><div class="field" style="grid-column:1/-1"><label>Sub Kegiatan</label><input id="sSub" list="listSub" placeholder="Pilih atau ketik Sub Kegiatan"><datalist id="listSub">${[...new Set(structures.map(z=>z.subKegiatan).filter(Boolean))].map(v=>`<option value="${esc(v)}">`).join('')}</datalist></div><div class="field" style="grid-column:1/-1"><label>Aktivitas</label><input id="sAktivitas" list="listAktivitas" placeholder="Pilih atau ketik Aktivitas"><datalist id="listAktivitas">${[...new Set(structures.map(z=>z.aktivitas).filter(Boolean))].map(v=>`<option value="${esc(v)}">`).join('')}</datalist></div></div><div class="toolbar" style="margin-top:12px"><button class="btn" onclick="saveStructure()">＋ Simpan Struktur</button><select id="structurePicker" onchange="loadStructure(this.value);showStructurePreview(this.value,'structurePreview')" style="min-width:260px;max-width:100%;flex:1"><option value="">Pilih struktur tersimpan untuk ditinjau</option>${structures.map(z=>`<option value="${z.id}">${esc(z.aktivitas||'Tanpa Aktivitas')}</option>`).join('')}</select><button class="btn secondary" onclick="deleteStructure()">Hapus Struktur Terpilih</button></div><div id="structurePreview" class="note" style="display:none;margin-top:10px"></div></div><div class="panel"><div class="head"><div class="toolbar"><select id="treeLevel" onchange="filterRows()" style="min-width:190px"><option value="all">Semua Tingkatan</option><option value="Program">Program</option><option value="Kegiatan">Kegiatan</option><option value="Sub Kegiatan">Sub Kegiatan</option><option value="Aktivitas">Aktivitas</option></select><input class="search" id="q" placeholder="Cari nama atau rekening..." oninput="filterRows()"><span class="tag">${db.length} rekening</span></div><div class="toolbar"><input id="importFile" type="file" accept=".xlsx,.xls,.csv" style="display:none" onchange="importBudgetFile(this.files[0])"><button class="btn secondary" onclick="document.getElementById('importFile').click()">⬆ Impor Data Excel</button><button class="btn secondary" onclick="downloadImportTemplate()">Unduh Template Impor</button><button class="btn secondary" onclick="changeBudget()">＋ Tambah / Ubah Pagu</button></div></div><div class="note">Tampilan berjenjang: Program → Kegiatan → Sub Kegiatan → Aktivitas. Baris tingkat atas hanya menampilkan total pagu rekening turunannya. Tombol + Rekening tersedia pada setiap Aktivitas.</div><div id="tbl">${budgetTree()}</div></div>`}
+
+function changeBudget(){
+ let opts=db.map(x=>`<option value="${x.id}">${esc(x.account)} — ${esc(x.activity)}</option>`).join('');
+ document.getElementById('mtitle').textContent='Tambah / Ubah Pagu Rekening';
+ document.getElementById('mbody').innerHTML=`<div class="formgrid"><div class="field" style="grid-column:1/-1"><label>Pilih rekening</label><select id="budgetAccount" style="width:100%">${opts}</select></div><div class="field"><label>Pagu Murni</label><div id="pureDisplay" style="padding:10px 0;font-weight:700"></div></div><div class="field"><label>Pagu Baru — total setelah perubahan (Rp)</label><input id="newBudgetValue" class="money-input" inputmode="numeric" type="text"></div><div class="field" style="grid-column:1/-1"><div id="budgetDeltaInfo" class="note"></div></div></div>`;
+ let refresh=()=>{let x=db.find(z=>z.id===document.getElementById('budgetAccount').value);document.getElementById('pureDisplay').textContent=money(x?.originalBudget??x?.budget??0);document.getElementById('newBudgetValue').value=formatNominal(x?.budget??0);showDelta()};
+ let showDelta=()=>{let x=db.find(z=>z.id===document.getElementById('budgetAccount').value),v=parseNominal(document.getElementById('newBudgetValue').value),d=v-(x?.originalBudget??x?.budget??0);document.getElementById('budgetDeltaInfo').innerHTML=`Selisih terhadap Pagu Murni: <b>${d>0?'+':''}${money(d)}</b> (${d>0?'penambahan':d<0?'pengurangan':'tidak berubah'})`};
+ document.getElementById('budgetAccount').onchange=refresh;document.getElementById('newBudgetValue').oninput=showDelta;
+ document.getElementById('modalSave').textContent='Simpan Pagu Baru';document.getElementById('modalSave').onclick=saveBudgetChange;
+ refresh();document.getElementById('modal').classList.add('open');
+}
+function saveBudgetChange(){let x=db.find(z=>z.id===document.getElementById('budgetAccount').value);if(!x)return;let v=parseNominal(document.getElementById('newBudgetValue').value);if(v<Math.max(sum(x.actual),sum(x.plan))&&!confirm('Pagu Baru lebih kecil daripada total rencana atau realisasi yang sudah tercatat. Tetap simpan?'))return;x.budget=v;persist();closeModal();render();}
+
+function filterRows(){let q=document.getElementById('q').value.toLowerCase(),level=document.getElementById('treeLevel')?.value||'all';document.getElementById('tbl').innerHTML=budgetTree(q,level)}
+function saveStructure(){
+ let z={bidang:document.getElementById('sBidang').value.trim(),program:document.getElementById('sProgram').value.trim(),kegiatan:document.getElementById('sKegiatan').value.trim(),subKegiatan:document.getElementById('sSub').value.trim(),aktivitas:document.getElementById('sAktivitas').value.trim()};
+ if(!z.program||!z.kegiatan||!z.subKegiatan||!z.aktivitas){alert('Program, Kegiatan, Sub Kegiatan, dan Aktivitas wajib diisi.');return}
+ let norm=v=>(v||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('id');
+ let found=structures.find(x=>norm(x.bidang)===norm(z.bidang)&&norm(x.program)===norm(z.program)&&norm(x.kegiatan)===norm(z.kegiatan)&&norm(x.subKegiatan)===norm(z.subKegiatan)&&norm(x.aktivitas)===norm(z.aktivitas));
+ if(found){alert('Aktivitas dengan kombinasi Program, Kegiatan, dan Sub Kegiatan ini sudah tersimpan. Pilih aktivitas tersebut untuk menambahkan rekening.');return}
+ structures.push({id:'STR'+Date.now(),...z});persistStructures();render();
+}
+function loadStructure(id){let z=structures.find(x=>x.id===id);if(!z)return;[['sBidang','bidang'],['sProgram','program'],['sKegiatan','kegiatan'],['sSub','subKegiatan'],['sAktivitas','aktivitas']].forEach(([a,b])=>document.getElementById(a).value=z[b]||'')}
+function showStructurePreview(id,targetId){let z=structures.find(x=>x.id===id),el=document.getElementById(targetId);if(!el)return;if(!z){el.style.display='none';el.innerHTML='';return}let fields=[['Bidang / UPT',z.bidang],['Program',z.program],['Kegiatan',z.kegiatan],['Sub Kegiatan',z.subKegiatan],['Aktivitas',z.aktivitas]];el.style.display='block';el.innerHTML='<b>Struktur yang dipilih:</b><div class="formgrid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:8px">'+fields.map(([k,v])=>`<div><span style="color:#68778b;font-size:12px">${k}</span><div style="font-weight:600;overflow-wrap:anywhere">${esc(v||'—')}</div></div>`).join('')+'</div>'}
+function deleteStructure(){let id=document.getElementById('structurePicker').value;if(!id)return alert('Pilih struktur terlebih dahulu.');if(db.some(x=>x.structureId===id))return alert('Struktur ini sedang digunakan oleh rekening. Hapus atau pindahkan rekening terkait terlebih dahulu.');if(confirm('Hapus struktur terpilih?')){structures=structures.filter(x=>x.id!==id);persistStructures();render()}}
+function editItem(id,preferredStructureId){editing=id||null;let x=db.find(x=>x.id===id)||{account:'',keterangan:'',unit:'',qty:1,unitPrice:0,budget:0,originalBudget:0,structureId:preferredStructureId||structures[0]?.id||''};let pure=x.originalBudget??x.budget;document.getElementById('mtitle').textContent=editing?'Ubah Data Rekening':'Tambah Data Rekening';let opts=structures.map(z=>`<option value="${z.id}" ${x.structureId===z.id?'selected':''}>${esc(z.aktivitas||'Tanpa Aktivitas')}</option>`).join('');document.getElementById('mbody').innerHTML=`<div class="note">Input rekening hanya berisi rekening belanja, keterangan, kuantitas, satuan, dan harga satuan. Struktur Bidang/UPT sampai Aktivitas dipilih dari Master Nomenklatur di halaman Data Anggaran.</div><div class="formgrid"><div class="field" style="grid-column:1/-1"><label>Struktur Bidang / Program / Kegiatan / Sub Kegiatan / Aktivitas</label><select id="fstructure" style="width:100%" onchange="showStructurePreview(this.value,'fstructurePreview')">${opts}</select><div id="fstructurePreview" class="note" style="margin-top:8px"></div></div><div class="field" style="grid-column:1/-1"><label>Kode dan uraian rekening belanja</label><input id="fa" value="${esc(x.account)}" placeholder="Contoh: 5.1.02... Belanja Jasa"></div><div class="field" style="grid-column:1/-1"><label>Keterangan</label><textarea id="fketerangan" rows="2" style="width:100%;border:1px solid #d8e0ec;border-radius:8px;padding:9px;font:inherit">${esc(x.keterangan||'')}</textarea></div><div class="field"><label>Qty</label><input id="fqty" type="number" min="0" step="any" value="${Number(x.qty??1)}"></div><div class="field"><label>Satuan</label><input id="fu" value="${esc(x.unit)}" placeholder="Paket, unit, orang"></div><div class="field"><label>Harga satuan (Rp)</label><input id="fh" type="text" inputmode="numeric" class="money-input" value="${formatNominal(x.unitPrice)}"></div><div class="field"><label>Pagu Murni (Rp) — otomatis</label><input id="fbo" type="text" inputmode="numeric" class="money-input" value="${formatNominal(pure)}" readonly></div><div class="field"><label>Pagu Baru (Rp)</label><input id="fb" type="text" inputmode="numeric" class="money-input" value="${formatNominal(x.budget)}" ${editing?'':'readonly'}></div></div>`;showStructurePreview(document.getElementById('fstructure').value,'fstructurePreview');let recalc=()=>{if(!editing){let q=Number(document.getElementById('fqty').value)||0,h=parseNominal(document.getElementById('fh').value),v=Math.round(q*h);document.getElementById('fbo').value=formatNominal(v);document.getElementById('fb').value=formatNominal(v)}};['fqty','fh'].forEach(id=>document.getElementById(id).addEventListener('input',recalc));document.getElementById('modal').classList.add('open')}
+function closeModal(){const modal=document.getElementById('modal');if(modal)modal.classList.remove('open');editing=null}
+function saveItem(){let account=document.getElementById('fa').value.trim(),sid=document.getElementById('fstructure').value,z=structures.find(v=>v.id===sid);if(!account){alert('Rekening wajib diisi');return}if(!z){alert('Buat dan pilih Struktur Nomenklatur terlebih dahulu pada bagian Master Bidang/UPT.');return}let pure=parseNominal(document.getElementById('fbo').value),newBudget=parseNominal(document.getElementById('fb').value),d={account,keterangan:document.getElementById('fketerangan').value.trim(),structureId:sid,bidang:z.bidang,program:z.program,kegiatan:z.kegiatan,subKegiatan:z.subKegiatan,aktivitas:z.aktivitas,activity:z.aktivitas,unit:document.getElementById('fu').value.trim(),qty:Number(document.getElementById('fqty').value)||0,unitPrice:parseNominal(document.getElementById('fh').value),originalBudget:editing?pure:newBudget,budget:newBudget};if(editing){let x=db.find(x=>x.id===editing);if(newBudget<Math.max(sum(x.actual),sum(x.plan))&&!confirm('Pagu Baru lebih kecil daripada total rencana atau realisasi. Tetap simpan?'))return;Object.assign(x,d)}else db.push({id:'NEW'+Date.now(),...d,plan:Array(12).fill(0),actual:Array(12).fill(0),components:{}});persist();closeModal();render()}
+
+function activityGroupKey(x){return String(x.structureId||[x.bidang,x.program,x.kegiatan,x.subKegiatan,x.aktivitas||x.activity].map(v=>String(v||'').trim().toLowerCase()).join('|'))}
+function activityBreakdownGroups(){
+ const map=new Map();
+ db.forEach(x=>{
+  const key=activityGroupKey(x);
+  if(!map.has(key))map.set(key,{key,activity:x.aktivitas||x.activity||'Tanpa Aktivitas',subKegiatan:x.subKegiatan||'',kegiatan:x.kegiatan||'',items:[],budget:0,plan:Array(12).fill(0),accounts:[]});
+  const g=map.get(key);g.items.push(x);g.budget+=Number(x.budget||0);
+  months.forEach((_,i)=>g.plan[i]+=Number((x.plan||[])[i]||0));
+ });
+ return [...map.values()].map(g=>{
+  const amap=new Map();
+  g.items.forEach(x=>{
+   const ak=String(x.account||'').trim().toLowerCase().replace(/\s+/g,' ');
+   if(!amap.has(ak))amap.set(ak,{key:ak,account:x.account||'',items:[],budget:0,plan:Array(12).fill(0)});
+   const a=amap.get(ak);a.items.push(x);a.budget+=Number(x.budget||0);
+   months.forEach((_,i)=>a.plan[i]+=Number((x.plan||[])[i]||0));
+  });
+  g.accounts=[...amap.values()];
+  return g;
+ });
+}
+function setAccountBreakdown(activityKey,accountKey,month,value){
+ const group=activityBreakdownGroups().find(g=>g.key===activityKey);if(!group)return;
+ const account=group.accounts.find(a=>a.key===accountKey);if(!account)return;
+ const amount=Math.max(0,Math.round(Number(value)||0));
+ const weights=account.items.map(x=>Math.max(0,Number(x.budget)||0));
+ const totalWeight=sum(weights);let assigned=0;
+ account.items.forEach((x,i)=>{
+  if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);
+  const part=i===account.items.length-1?amount-assigned:(totalWeight>0?Math.floor(amount*weights[i]/totalWeight):Math.floor(amount/account.items.length));
+  x.plan[month]=part;assigned+=part;
+ });
+ persist();renderBD();
+}
+function breakdown(){return `<h1>Breakdown Anggaran Bulanan</h1><p class="desc">Breakdown ditampilkan per Aktivitas dan dirinci per Rekening Belanja. Rekening dengan kode dan uraian sama dalam Aktivitas yang sama digabung menjadi satu baris. Input bulanan dilakukan pada rekening, sedangkan baris Aktivitas menjadi ringkasan.</p><div class="panel"><div class="head"><span class="tag">Total pagu: ${money(total('budget'))}</span><span class="tag">Total rencana: ${money(total('plan'))}</span><button class="btn secondary" onclick="downloadBreakdownTemplate()">Template Impor</button><button class="btn secondary" onclick="document.getElementById('breakdownImportFile').click()">Impor Excel</button><input id="breakdownImportFile" type="file" accept=".xlsx,.xls" style="display:none" onchange="importBreakdownFile(this.files[0])"><select id="bm" onchange="renderBD()"><option value="-1">Tampilkan semua bulan</option>${months.map((m,i)=>`<option value="${i}">${m}</option>`).join('')}</select></div><div id="bdtable">${bdTable(-1)}</div></div>`}
+function bdTable(m){
+ const groups=activityBreakdownGroups(),monthIndexes=m<0?months.map((_,i)=>i):[m];
+ const totalBudget=sum(groups.map(g=>g.budget)),totalPlan=sum(groups.map(g=>sum(g.plan)));
+ let accountRows=0;
+ const body=groups.map(g=>{
+  const activityPlan=sum(g.plan),activityDiff=g.budget-activityPlan;
+  const activityRow=`<tr class="breakdown-activity-row"><td><b>${esc(g.activity)}</b><div class="hint">${esc(g.subKegiatan||g.kegiatan||'')}</div></td><td class="num"><b>${money(g.budget)}</b></td>${monthIndexes.map(i=>`<td class="num">—</td>`).join('')}<td class="num"><b>${money(activityPlan)}</b></td><td class="num" style="font-weight:700;color:${activityDiff<0?'#dc2626':activityDiff===0?'#15803d':'#b45309'}">${money(activityDiff)}</td></tr>`;
+  const rows=g.accounts.map(a=>{
+   accountRows++;
+   const planned=sum(a.plan),diff=a.budget-planned;
+   return `<tr class="breakdown-account-row"><td><span style="padding-left:18px;display:block">${esc(a.account)}</span><div class="hint" style="padding-left:18px">${a.items.length>1?a.items.length+' data rekening digabung':''}</div></td><td class="num">${money(a.budget)}</td>${monthIndexes.map(i=>`<td class="num"><input type="text" inputmode="numeric" class="money-input" value="${formatNominal(a.plan[i]||0)}" onchange="setAccountBreakdown('${g.key.replace(/'/g,"\\'")}','${a.key.replace(/'/g,"\\'")}',${i},parseNominal(this.value))"></td>`).join('')}<td class="num"><b>${money(planned)}</b></td><td class="num" style="font-weight:700;color:${diff<0?'#dc2626':diff===0?'#15803d':'#b45309'}">${money(diff)}</td></tr>`;
+  }).join('');
+  return activityRow+rows;
+ }).join('');
+ return `<div class="tablewrap"><table class="breakdown-global-table"><thead><tr><th>AKTIVITAS / REKENING BELANJA</th><th class="num">TOTAL PAGU</th>${monthIndexes.map(i=>`<th class="num month-heading">${months[i].slice(0,3)}</th>`).join('')}<th class="num">TOTAL BREAKDOWN</th><th class="num">SELISIH</th></tr></thead><tbody>${body}</tbody><tfoot><tr><th>TOTAL</th><th class="num">${money(totalBudget)}</th>${monthIndexes.map(i=>`<th class="num">${money(sum(groups.map(g=>g.plan[i]||0)))}</th>`).join('')}<th class="num">${money(totalPlan)}</th><th class="num">${money(totalBudget-totalPlan)}</th></tr></tfoot></table></div>`;
+}
+function renderBD(){const wrap=document.querySelector('#bdtable .tablewrap');const top=wrap?wrap.scrollTop:0,left=wrap?wrap.scrollLeft:0;const pageTop=window.scrollY;document.getElementById('bdtable').innerHTML=bdTable(+document.getElementById('bm').value);const next=document.querySelector('#bdtable .tablewrap');if(next){next.scrollTop=top;next.scrollLeft=left}window.scrollTo(0,pageTop)}
+function monthlyCards(){return `<div class="monthgrid">${months.map((m,i)=>`<div class="month"><b>${m}</b><strong>${money(sum(db.map(x=>x.plan[i]||0)))}</strong><small>Rencana bulanan</small></div>`).join('')}</div>`}
+function semesterInfo(m){
+ const start=m<6?0:6,end=start+5,monthsLeft=end-m+1;
+ return {start,end,monthsLeft,name:m<6?'Semester I':'Semester II'};
+}
+function spjSemesterPool(x,m){
+ const s=semesterInfo(m);
+ const base=sum((x.plan||[]).slice(s.start,s.end+1));
+ if(m<6)return base;
+ const firstSemesterPlan=sum((x.plan||[]).slice(0,6));
+ const firstSemesterActual=sum((x.actual||[]).slice(0,6));
+ const carry=Math.max(0,firstSemesterPlan-firstSemesterActual);
+ return base+carry;
+}
+function spjMonthlyPlan(x,m){
+ // Rencana SPJ bulanan harus mengikuti nominal Breakdown pada bulan yang sama,
+ // bukan membagi ulang sisa pagu semester dengan pembulatan.
+ const planned=Number((x.plan||[])[m]||0);
+ const realized=Number((x.actual||[])[m]||0);
+ return Math.max(0,planned-realized);
+}
+function spjRemainingPool(x,m){
+ const s=semesterInfo(m);
+ return Math.max(0,spjSemesterPool(x,m)-sum((x.actual||[]).slice(s.start,m)));
+}
+function spjSemester1Remaining(x){
+ return sum((x.plan||[]).slice(0,6))-sum((x.actual||[]).slice(0,6));
+}
+function spjSemester2Remaining(x){
+ const base=sum((x.plan||[]).slice(6,12));
+ const carry=Math.max(0,spjSemester1Remaining(x));
+ return base+carry-sum((x.actual||[]).slice(6,12));
+}
+function spjYearRemaining(x){
+ return (+x.budget||0)-sum(x.actual||[]);
+}
+function rencana(){return `<h1>Rencana SPJ Bulanan</h1><p class="desc">Nominal Rencana SPJ mengikuti nilai Breakdown Anggaran pada bulan yang dipilih. Sisa Semester II mencakup sisa Semester I yang masih tersedia, ditambah pagu Breakdown Semester II, dikurangi realisasi Semester II.</p><div class="panel"><div class="head"><div class="toolbar"><select id="rm" onchange="renderPlan()">${months.map((m,i)=>`<option value="${i}">${m}</option>`).join('')}</select></div><div class="toolbar"><button class="btn secondary" onclick="exportPlanExcel()">Ekspor Excel (.xlsx)</button></div></div><div id="plantable">${planTable(0)}</div></div><div class="note">Rencana SPJ merupakan rencana internal, bukan dokumen pertanggungjawaban. Dasar pagu semester berasal dari Breakdown Bulanan. Input realisasi pada menu Realisasi Anggaran akan otomatis mengubah sisa pagu dan pembagian rencana bulan berikutnya.</div>`}
+function planGlobalGroups(m){
+ const map=new Map();
+ db.forEach(x=>{
+  const key=String(x.account||'').trim().toLowerCase().replace(/\s+/g,' ');
+  if(!map.has(key))map.set(key,{key,account:x.account||'',items:[],activities:[],amount:0,remaining:0,manual:false});
+  const g=map.get(key);g.items.push(x);
+  const a=x.aktivitas||x.activity||'';if(a&&!g.activities.includes(a))g.activities.push(a);
+  if(!spjDeferredHas(x.id,m)){g.amount+=spjShownValue(x,m);g.remaining+=spjRemainingPool(x,m);if(spjManualValue(x.id,m)!==null)g.manual=true}
+ });
+ return [...map.values()].filter(g=>g.amount>0);
+}
+function deferSpjGlobal(key,m){
+ const g=planGlobalGroups(m).find(z=>z.key===key);if(!g)return;
+ if(!spjDeferred[m])spjDeferred[m]=[];
+ g.items.forEach(x=>{if(!spjDeferred[m].includes(x.id))spjDeferred[m].push(x.id)});
+ savePlanState();renderPlan();
+}
+function planTable(m){
+ const s=semesterInfo(m);
+ const allGroups=activityBreakdownGroups();
+ const groups=allGroups.filter(g=>(g.plan[m]||0)>0 && !g.items.every(x=>spjDeferredHas(x.id,m)));
+ const totalNow=sum(groups.map(g=>g.plan[m]||0));
+ // Sisa semester I = pagu/breakdown semester I dikurangi realisasi aktual sampai bulan terpilih.
+ // Pada semester II, sisa semester I yang positif dibawa ke pagu semester II.
+ function remainingForActivity(g){
+  const firstPlan=sum(g.items.map(x=>sum((x.plan||[]).slice(0,6))));
+  const firstActual=sum(g.items.map(x=>sum((x.actual||[]).slice(0,6))));
+  if(m<6){
+   const actualToDate=sum(g.items.map(x=>sum((x.actual||[]).slice(0,m+1))));
+   return firstPlan-actualToDate;
+  }
+  const secondPlan=sum(g.items.map(x=>sum((x.plan||[]).slice(6,12))));
+  const secondActualToDate=sum(g.items.map(x=>sum((x.actual||[]).slice(6,m+1))));
+  return Math.max(0,firstPlan-firstActual)+secondPlan-secondActualToDate;
+ }
+ const totalRemaining=sum(allGroups.map(remainingForActivity));
+ return `<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:5px 0 12px"><b>Rencana ${months[m]} ${activeYear} · ${s.name}</b><b>Total rencana bulan ini: ${money(totalNow)}</b></div>
+ <div class="note" style="margin-bottom:12px"><b>Mekanisme:</b> Sisa Semester I dihitung dari pagu Breakdown Januari–Juni dikurangi realisasi sampai bulan terpilih. Pada Semester II, sisa Semester I yang masih tersedia ditambahkan ke pagu Breakdown Juli–Desember, kemudian dikurangi realisasi Semester II sampai bulan terpilih.</div>
+ <div class="toolbar" style="justify-content:flex-end;margin-bottom:10px"><button class="btn" onclick="openManualSpj(${m})">＋ Tambah Manual</button></div>
+ ${groups.length?`<div class="tablewrap"><table class="spj-plan-table breakdown-global-table"><thead><tr><th>AKTIVITAS</th><th class="num">${months[m].slice(0,3).toUpperCase()}</th><th class="num">SISA SEMESTER</th><th class="num">AKSI</th></tr></thead><tbody>${groups.map(g=>{
+  const remaining=remainingForActivity(g);
+  return `<tr><td><b>${esc(g.activity)}</b><div class="hint">${esc(g.subKegiatan||g.kegiatan||'')}</div></td><td class="num"><b>${money(g.plan[m]||0)}</b></td><td class="num" style="font-weight:700;color:${remaining<0?'#dc2626':'#15803d'}">${money(remaining)}</td><td class="num"><button class="spj-trash-btn" title="Tunda aktivitas bulan ini" onclick="deferActivitySpj('${g.key.replace(/'/g,"\\'")}',${m})">🗑</button></td></tr>`;
+ }).join('')}</tbody><tfoot><tr><th>TOTAL</th><th class="num">${money(totalNow)}</th><th class="num">${money(totalRemaining)}</th><th></th></tr></tfoot></table></div>`:'<div style="padding:25px;text-align:center;color:#6b7890">Belum ada aktivitas dengan breakdown pada bulan ini. Gunakan tombol ＋ Tambah Manual atau periksa Breakdown Anggaran.</div>'}`;
+}
+function deferActivitySpj(key,m){
+ const g=activityBreakdownGroups().find(z=>z.key===key);if(!g)return;
+ if(!spjDeferred[m])spjDeferred[m]=[];
+ g.items.forEach(x=>{if(!spjDeferred[m].includes(x.id))spjDeferred[m].push(x.id)});
+ savePlanState();renderPlan();
+}
+
+function openComponents(id,m){
+ let x=db.find(z=>z.id===id);if(!x)return;
+ componentTarget={id,m};componentDraft=JSON.parse(JSON.stringify((x.components&&x.components[m])||[]));
+ document.getElementById('mtitle').textContent='Rincian Komponen — '+months[m];
+ document.getElementById('mbody').innerHTML=`<div class="note">Rekening: <b>${esc(x.account)}</b><br>Rencana SPJ otomatis bulan ${months[m]}: <b>${money(spjMonthlyPlan(x,m))}</b>. Total komponen tidak boleh melebihi rencana bulan ini.</div><div id="componentRows"></div><button class="btn secondary" onclick="addComponent()">＋ Tambah Komponen</button><div id="componentSummary" style="margin-top:14px;padding:12px;background:#f4f7fb;border-radius:9px"></div>`;
+ document.getElementById('modalSave').textContent='Simpan Rincian';document.getElementById('modalSave').onclick=saveComponents;
+ document.getElementById('modal').classList.add('open');renderComponentRows();
+}
+function renderComponentRows(){
+ let box=document.getElementById('componentRows');if(!box)return;
+ box.innerHTML=componentDraft.length?componentDraft.map((c,i)=>`<div class="panel" style="padding:12px;margin:9px 0"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b>Komponen ${i+1}</b><button class="btn secondary" onclick="removeComponent(${i})">Hapus</button></div><div class="formgrid"><div class="field" style="grid-column:1/-1"><label>Nama komponen belanja</label><input data-ci="${i}" data-cf="name" value="${esc(c.name||'')}" placeholder="Contoh: Konsumsi rapat"></div><div class="field"><label>Volume / kuantitas</label><input data-ci="${i}" data-cf="qty" type="number" min="0" step="any" value="${c.qty??1}"></div><div class="field"><label>Satuan</label><input data-ci="${i}" data-cf="unit" value="${esc(c.unit||'paket')}" placeholder="paket, orang, OH, unit"></div><div class="field"><label>Harga satuan (Rp)</label><input data-ci="${i}" data-cf="price" type="text" inputmode="numeric" class="money-input" value="${formatNominal(c.price||0)}"></div><div class="field"><label>Jumlah (otomatis)</label><input value="${money((+c.qty||0)*(+c.price||0))}" disabled></div></div></div>`).join(''):'<div style="padding:18px;text-align:center;color:#6b7890">Belum ada komponen. Klik Tambah Komponen.</div>';
+ box.querySelectorAll('input[data-ci]').forEach(inp=>inp.addEventListener('input',()=>{let i=+inp.dataset.ci,f=inp.dataset.cf,v=inp.value;componentDraft[i][f]=f==='price'?parseNominal(v):f==='qty'?(+v||0):v;let line=inp.closest('.panel');if(line){let out=line.querySelector('input[disabled]');if(out)out.value=money((+componentDraft[i].qty||0)*(+componentDraft[i].price||0));}renderComponentSummary()}));renderComponentSummary();
+}
+function renderComponentSummary(){
+ let x=componentTarget&&db.find(z=>z.id===componentTarget.id);if(!x)return;
+ let total=sum(componentDraft.map(c=>(+c.qty||0)*(+c.price||0))),allocation=spjMonthlyPlan(x,componentTarget.m),remaining=allocation-total,el=document.getElementById('componentSummary');
+ if(el)el.innerHTML=`<div style="display:flex;justify-content:space-between;margin:4px 0"><span>Rencana SPJ otomatis</span><b>${money(allocation)}</b></div><div style="display:flex;justify-content:space-between;margin:4px 0"><span>Total komponen</span><b>${money(total)}</b></div><div style="display:flex;justify-content:space-between;margin:4px 0"><span>Sisa belum dirinci</span><b style="color:${remaining<0?'#b42318':'#0e8279'}">${money(remaining)}</b></div>${remaining<0?'<div class="note">Total komponen melebihi alokasi bulanan. Kurangi nilai komponen sebelum menyimpan.</div>':'<div style="font-size:11px;color:#6b7890">Total komponen tidak boleh melebihi rencana SPJ bulan ini.</div>'}`;
+}
+function addComponent(){componentDraft.push({name:'',qty:1,unit:'paket',price:0});renderComponentRows()}
+function removeComponent(i){componentDraft.splice(i,1);renderComponentRows()}
+function saveComponents(){
+ let x=db.find(z=>z.id===componentTarget.id),m=componentTarget.m;
+ for(let c of componentDraft){if(!String(c.name||'').trim()){alert('Nama setiap komponen wajib diisi.');return}}
+ let total=sum(componentDraft.map(c=>(+c.qty||0)*(+c.price||0)));
+ if(total>spjMonthlyPlan(x,m)){alert('Total komponen melebihi rencana SPJ bulan '+months[m]+'.');return}
+ x.components=x.components||{};x.components[m]=componentDraft.map(c=>({...c,qty:+c.qty||0,price:+c.price||0,total:(+c.qty||0)*(+c.price||0)}));
+ persist();closeModal();renderPlan();
+}
+
+function openAddAccount(){
+ let m=+document.getElementById('rm').value;
+ let opts=db.map(x=>`<option value="${esc(x.id)}">${esc(x.account)} — ${esc(x.activity)}</option>`).join('');
+ let monthOpts=months.map((x,i)=>`<option value="${i}" ${i===Math.max(0,m-1)?'selected':''} ${i>=m?'disabled':''}>${x}</option>`).join('');
+ document.getElementById('mtitle').textContent='Tambah Rekening ke Rencana '+months[m];
+ document.getElementById('mbody').innerHTML=`<div class="note">Pilih rekening yang belum dijalankan pada bulan ini, lalu pindahkan sebagian atau seluruh alokasinya dari bulan yang ditunda ke ${months[m]}. Total pagu tahunan rekening tidak berubah.</div><div class="formgrid"><div class="field" style="grid-column:1/-1"><label>Rekening</label><select id="moveAccount" style="width:100%">${opts}</select></div><div class="field"><label>Pindahkan alokasi dari bulan</label><select id="moveSource" style="width:100%">${monthOpts}</select></div><div class="field"><label>Nominal yang dipindahkan (Rp)</label><input id="moveAmount" type="text" inputmode="numeric" class="money-input" placeholder="Contoh: 10.000.000"></div></div><div id="moveInfo" class="note"></div>`;
+ document.getElementById('modalSave').textContent='Pindahkan ke '+months[m];document.getElementById('modalSave').onclick=saveMoveAccount;
+ document.getElementById('modal').classList.add('open');
+ const refresh=()=>{let x=db.find(z=>z.id===document.getElementById('moveAccount').value),sm=+document.getElementById('moveSource').value,available=x?(+x.plan[sm]||0):0;document.getElementById('moveInfo').innerHTML=`Alokasi tersedia pada ${months[sm]}: <b>${money(available)}</b><br>Alokasi saat ini pada ${months[m]}: <b>${money(x?.plan[m]||0)}</b>`};
+ document.getElementById('moveAccount').onchange=refresh;document.getElementById('moveSource').onchange=refresh;refresh();
+}
+function saveMoveAccount(){
+ let id=document.getElementById('moveAccount').value,x=db.find(z=>z.id===id),target=+document.getElementById('rm').value,source=+document.getElementById('moveSource').value,amount=parseNominal(document.getElementById('moveAmount').value);
+ if(!x||source===target||amount<=0){alert('Pilih rekening, bulan sumber yang berbeda, dan nominal lebih dari nol.');return}
+ let available=+x.plan[source]||0;if(amount>available){alert('Nominal melebihi alokasi yang tersedia pada '+months[source]+'.');return}
+ let sourceComponents=sum((((x.components||{})[source])||[]).map(c=>+c.total||0));
+ if(sourceComponents>available-amount){alert('Rincian komponen di bulan sumber melebihi sisa alokasi setelah pemindahan. Sesuaikan atau hapus rincian komponen terlebih dahulu.');return}
+ x.plan[source]=available-amount;x.plan[target]=(+x.plan[target]||0)+amount;
+ persist();closeModal();renderPlan();
+}
+function deleteMonthlyPlan(id,m){
+ let x=db.find(z=>z.id===id);if(!x)return;
+ if(!confirm('Hapus rincian komponen bulan '+months[m]+'? Rencana SPJ akan tetap dihitung otomatis berdasarkan pagu semester dan realisasi.'))return;
+ x.components=x.components||{};delete x.components[m];persist();renderPlan();
+}
+
+
+function renderPlan(){const wrap=document.querySelector('#plantable .tablewrap');const top=wrap?wrap.scrollTop:0,left=wrap?wrap.scrollLeft:0;const pageTop=window.scrollY;document.getElementById('plantable').innerHTML=planTable(+document.getElementById('rm').value);const next=document.querySelector('#plantable .tablewrap');if(next){next.scrollTop=top;next.scrollLeft=left}window.scrollTo(0,pageTop)}
+function renderRealisasiAnggaranPage(){
+ const pureTotal=sum(db.map(x=>x.originalBudget??x.budget)),newTotal=sum(db.map(x=>x.budget)),actualTotal=sum(db.map(x=>sum(x.actual||[])));
+ const hasNew=db.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
+ return `<h1>Realisasi Anggaran</h1><p class="desc">Input realisasi Januari sampai Desember langsung pada satu tabel. Angka kecil di bawah setiap isian menunjukkan alokasi Breakdown anggaran bulan tersebut.</p><div class="panel"><div class="head" style="flex-wrap:wrap;gap:12px"><button class="btn secondary" onclick="exportActualExcel()">Ekspor Excel</button><button class="btn secondary" onclick="downloadActualTemplate()">Template Impor</button><button class="btn secondary" onclick="document.getElementById('actualImportFile').click()">Impor Excel</button><input id="actualImportFile" type="file" accept=".xlsx,.xls" style="display:none" onchange="importActualFile(this.files[0])"><span class="tag">Pagu Murni: ${money(pureTotal)}<small style="display:block;font-size:10px;font-weight:500;margin-top:4px">Realisasi ${pct(actualTotal,pureTotal).toFixed(2)}%</small></span>${hasNew?`<span class="tag">Pagu Baru: ${money(newTotal)}<small style="display:block;font-size:10px;font-weight:500;margin-top:4px">Realisasi ${pct(actualTotal,newTotal).toFixed(2)}%</small></span>`:''}<span id="acttotal" class="tag">Total realisasi tahunan: ${money(actualTotal)}</span></div><div id="acttable">${actualTable()}</div></div>`
+}
+function actualTable(){
+ const root={children:new Map()};
+ const norm=v=>String(v??'').trim().replace(/\s+/g,' ').toLowerCase();
+ const labels=x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas'];
+ db.forEach(x=>{
+  let n=root;
+  labels(x).forEach((label,idx)=>{
+   const key=norm(label);
+   if(!n.children.has(key))n.children.set(key,{label,level:idx,children:new Map(),accounts:new Map(),items:[]});
+   n=n.children.get(key);
+  });
+  const accountKey=norm(x.account||'Tanpa Rekening');
+  if(!n.accounts.has(accountKey))n.accounts.set(accountKey,{key:accountKey,account:x.account||'Tanpa Rekening',items:[]});
+  n.accounts.get(accountKey).items.push(x);
+ });
+ const allGroups=[];
+ const collectGroups=n=>{if(n.level===3)allGroups.push(...n.accounts.values());else [...n.children.values()].forEach(collectGroups)};
+ [...root.children.values()].forEach(collectGroups);
+ const hasNew=db.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
+ const agg=(items,fn)=>sum(items.map(fn));
+ const monthHeaders=months.map(m=>`<th class="num month-heading">${m.slice(0,3)}</th>`).join('');
+ const monthInputs=g=>months.map((m,i)=>{
+  const actual=agg(g.items,x=>x.actual[i]||0),plan=agg(g.items,x=>x.plan[i]||0);
+  const scope=encodeURIComponent(JSON.stringify([...labels(g.items[0]),g.account]));
+  return `<td class="num actual-month-cell"><input type="text" inputmode="numeric" class="money-input actual-month-input" value="${formatNominal(actual)}" onchange="setAccountActual('${scope}',${i},parseNominal(this.value))"><small class="breakdown-hint">${money(plan)}</small></td>`;
+ }).join('');
+ const renderNode=n=>{
+  const descendants=[];const gather=z=>{if(z.level===3)descendants.push(...[...z.accounts.values()].flatMap(g=>g.items));else [...z.children.values()].forEach(gather)};gather(n);
+  const pure=agg(descendants,x=>x.originalBudget??x.budget),budget=agg(descendants,x=>x.budget);
+  let row=`<tr class="tree-node tree-${['program','kegiatan','subkegiatan','aktivitas'][n.level]}"><td><div style="display:flex;align-items:center;gap:8px;padding-left:${[0,18,36,54][n.level]}px"><span class="level-pill">${['Program','Kegiatan','Sub Kegiatan','Aktivitas'][n.level]}</span><b>${esc(n.label)}</b></div></td><td class="num">${money(pure)}</td>${hasNew?`<td class="num">${money(budget)}</td>`:''}${months.map(()=>'<td></td>').join('')}<td></td><td></td><td></td></tr>`;
+  if(n.level===3){
+   row+=[...n.accounts.values()].map(g=>{
+    const items=g.items,p=agg(items,x=>x.originalBudget??x.budget),b=agg(items,x=>x.budget);
+    return `<tr class="tree-account"><td><div style="padding-left:58px"><b>${esc(g.account)}</b>${items.length>1?`<div class="hint">${items.length} jenis barang digabung dalam rekening ini</div>`:''}</div></td><td class="num">${money(p)}</td>${hasNew?`<td class="num">${money(b)}</td>`:''}${monthInputs(g)}<td class="num">${money(agg(items,spjSemester1Remaining))}</td><td class="num">${money(agg(items,spjSemester2Remaining))}</td><td class="num"><b>${money(agg(items,spjYearRemaining))}</b></td></tr>`;
+   }).join('');
+  }else row+=[...n.children.values()].map(renderNode).join('');
+  return row;
+ };
+ const body=[...root.children.values()].map(renderNode).join('');
+ return `<div class="tablewrap"><table class="actual-year-table tree-table"><thead><tr><th>Program / Kegiatan / Sub Kegiatan / Aktivitas / Rekening</th><th class="num">Pagu Murni</th>${hasNew?'<th class="num">Pagu Baru</th>':''}${monthHeaders}<th class="num">Sisa Semester I</th><th class="num">Sisa Semester II</th><th class="num">Sisa Satu Tahun</th></tr></thead><tbody>${body||'<tr><td colspan="20" style="text-align:center;padding:24px">Belum ada data anggaran.</td></tr>'}</tbody><tfoot><tr><th>TOTAL</th><th class="num">${money(sum(db.map(x=>x.originalBudget??x.budget)))}</th>${hasNew?`<th class="num">${money(sum(db.map(x=>(+x.budget||0)!==(+x.originalBudget||0)?x.budget:0)))}</th>`:''}${months.map((m,i)=>`<th class="num">${money(sum(db.map(x=>x.actual[i]||0)))}</th>`).join('')}<th class="num">${money(sum(db.map(spjSemester1Remaining)))}</th><th class="num">${money(sum(db.map(spjSemester2Remaining)))}</th><th class="num"><b>${money(sum(db.map(spjYearRemaining)))}</b></th></tr></tfoot></table></div>`;
+}
+
+function setAccountActual(encodedScope,m,value){
+ const scope=JSON.parse(decodeURIComponent(encodedScope));
+ const norm=v=>String(v??'').trim().replace(/\s+/g,' ').toLowerCase();
+ const matches=db.filter(x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas',x.account||'Tanpa Rekening'].map(norm).join('|')===scope.map(norm).join('|'));
+ if(!matches.length)return;
+ const amount=Math.max(0,Math.round(Number(value)||0));
+ const weights=matches.map(x=>Math.max(0,Number((x.plan||[])[m])||0));
+ let totalWeight=sum(weights);
+ if(totalWeight<=0){weights.splice(0,weights.length,...matches.map(()=>1));totalWeight=matches.length}
+ let assigned=0;
+ matches.forEach((x,i)=>{
+  if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);
+  const part=i===matches.length-1?amount-assigned:Math.floor(amount*weights[i]/totalWeight);
+  x.actual[m]=part;assigned+=part;
+ });
+ persist();
+ if(page==='realisasi')renderActual();
+ if(page==='dashboard'||page==='laporan')render();
+}
+
+
+function exportActualExcel(){
+ const rows=db;
+ const hasPapbd=rows.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
+ const hierarchy=x=>[
+  x.program||'Tanpa Program',
+  x.kegiatan||'Tanpa Kegiatan',
+  x.subKegiatan||'Tanpa Sub Kegiatan',
+  x.aktivitas||x.activity||'Tanpa Aktivitas',
+  x.account||''
+ ];
+ const records=[],seen=new Set();
+ rows.forEach(x=>{
+  const levels=hierarchy(x);
+  levels.forEach((label,idx)=>{
+   const key=levels.slice(0,idx+1).map(v=>String(v).trim().toLowerCase()).join('||');
+   if(seen.has(key))return;
+   seen.add(key);
+   const members=rows.filter(y=>hierarchy(y).slice(0,idx+1).map(v=>String(v).trim().toLowerCase()).join('||')===key);
+   const pure=sum(members.map(y=>y.originalBudget??y.budget));
+   const papbd=sum(members.map(y=>y.budget));
+   const actual=sum(members.map(y=>sum(y.actual||[])));
+   records.push({label,level:idx,pure,papbd,actual,remaining:papbd-actual});
+  });
+ });
+ const totalPure=sum(rows.map(x=>x.originalBudget??x.budget));
+ const totalBudget=sum(rows.map(x=>x.budget));
+ const totalActual=sum(rows.map(x=>sum(x.actual||[])));
+ const headers=['URAIAN','PAGU MURNI',...(hasPapbd?['PAPBD 1']:[]),'REALISASI','SISA ANGGARAN','KETERANGAN'];
+ const escHtml=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+ const fmt=v=>Number(v||0).toLocaleString('id-ID');
+ const cols=headers.map((_,i)=>i===0?'<col style="width:570pt">':'<col style="width:115pt">').join('');
+ const header=`<tr>${headers.map(x=>`<th>${escHtml(x)}</th>`).join('')}</tr>`;
+ const body=records.map(r=>{
+  const vals=[{text:r.label,level:r.level},fmt(r.pure),...(hasPapbd?[fmt(r.papbd)]:[]),fmt(r.actual),fmt(r.remaining),''];
+  return `<tr>${vals.map((v,i)=>{
+   const text=typeof v==='object'?v.text:v;
+   const isLabel=i===0,level=isLabel?v.level:-1;
+   const style=isLabel
+    ?`text-align:left;padding-left:${level*18+5}px;font-weight:${level<=2?'bold':'normal'};font-style:${level===3?'italic':'normal'};`
+    :'text-align:right;mso-number-format:"\\#\\,\\#\\#0";';
+   return `<td style="${style}">${escHtml(text)}</td>`;
+  }).join('')}</tr>`;
+ }).join('');
+ const totalCells=['TOTAL',fmt(totalPure),...(hasPapbd?[fmt(totalBudget)]:[]),fmt(totalActual),fmt(totalBudget-totalActual),''];
+ const total=`<tr class="total">${totalCells.map((v,i)=>`<td style="font-weight:bold;text-align:${i===0||i===totalCells.length-1?'left':'right'}">${escHtml(v)}</td>`).join('')}</tr>`;
+ const table=`<table><colgroup>${cols}</colgroup><thead>${header}</thead><tbody>${body}${total}</tbody></table>`;
+ const report=`<!doctype html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Realisasi Anggaran</x:Name><x:WorksheetOptions><x:DisplayGridlines>False</x:DisplayGridlines><x:PageSetup><x:Layout x:Orientation="Landscape"/></x:PageSetup></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><style>body{font-family:Calibri,Arial;font-size:12pt}table{border-collapse:collapse;mso-displayed-decimal-separator:",";mso-displayed-thousand-separator:"."}th,td{border:1px solid #000;padding:4px 6px;height:20px;vertical-align:middle}th{text-align:center;font-weight:bold;background:#eaf0f7}.total td{font-weight:bold;border:1.5px solid #000}
+.spj-plan-table{min-width:720px}
+#plantable .spj-plan-table th:first-child,#plantable .spj-plan-table td:first-child{position:sticky;left:0;min-width:300px;width:300px;max-width:300px;z-index:6;background:#fff}
+#plantable .spj-plan-table thead th:first-child{z-index:9;background:#eaf0f7}
+#plantable .spj-plan-table tfoot th:first-child{z-index:8;background:#eaf0f7}
+</style></head><body>${table}
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('PWA service worker:', err));
+  });
+}
+</script>
+
+</body></html>`;
+ const blob=new Blob(['\ufeff',report],{type:'application/vnd.ms-excel;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download=`Realisasi-Anggaran-${activeYear}.xls`;
+ document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),3000);
+}
+function renderActual(){let a=sum(db.map(x=>sum(x.actual||[]))),p=sum(db.map(x=>x.originalBudget??x.budget)),n=sum(db.map(x=>x.budget));document.getElementById('acttable').innerHTML=actualTable();let tags=document.querySelectorAll('#view .panel .head .tag');if(tags[0])tags[0].innerHTML=`Pagu Murni: ${money(p)}<small style="display:block;font-size:10px;font-weight:500;margin-top:4px">Realisasi ${pct(a,p).toFixed(2)}%</small>`;let changed=db.some(x=>(+x.budget||0)!==(+x.originalBudget||0));if(changed&&tags[1])tags[1].innerHTML=`Pagu Baru: ${money(n)}<small style="display:block;font-size:10px;font-weight:500;margin-top:4px">Realisasi ${pct(a,n).toFixed(2)}%</small>`;document.getElementById('acttotal').textContent='Total realisasi tahunan: '+money(a)}
+function setValue(id,k,m,v){let x=db.find(x=>x.id===id);x[k][m]=Math.max(0,+v||0);persist();if(page==='breakdown')renderBD();if(page==='rencana')renderPlan();if(page==='realisasi')renderActual();if(page==='dashboard'||page==='laporan')render()}
+function laporan(){return `<h1>Rekapitulasi Tahunan</h1><p class="desc">Ringkasan pagu, total breakdown, realisasi dan sisa anggaran per bulan.</p><div class="cards"><div class="card"><div class="klabel">Total Pagu Baru</div><div class="kvalue">${money(total('budget'))}</div><div class="hint">Pagu murni: ${money(total('originalBudget'))}</div></div><div class="card"><div class="klabel">Total Rencana</div><div class="kvalue">${money(total('plan'))}</div></div><div class="card"><div class="klabel">Total Realisasi</div><div class="kvalue">${money(total('actual'))}</div></div><div class="card"><div class="klabel">Sisa Pagu</div><div class="kvalue">${money(total('budget')-total('actual'))}</div></div></div><div class="panel"><div class="head"><h3>Rekap Per Bulan</h3><button class="btn secondary" onclick="exportYear()">Ekspor Rekap CSV</button></div><div class="tablewrap"><table><thead><tr><th>Bulan</th><th class="num">Rencana</th><th class="num">Realisasi</th><th class="num">Selisih Rencana - Realisasi</th><th class="num">Akumulasi Realisasi</th></tr></thead><tbody>${months.map((m,i)=>`<tr><td>${m}</td><td class="num">${money(sum(db.map(x=>x.plan[i]||0)))}</td><td class="num">${money(sum(db.map(x=>x.actual[i]||0)))}</td><td class="num">${money(sum(db.map(x=>(x.plan[i]||0)-(x.actual[i]||0))))}</td><td class="num">${money(sum(db.map(x=>sum(x.actual.slice(0,i+1)))) )}</td></tr>`).join('')}</tbody></table></div></div><div class="panel"><div class="head"><h3>Rincian Rekening</h3><button class="btn secondary" onclick="backup()">Backup Data JSON</button></div>${rowsTable(db,false)}</div>`}
+function dl(name,text,type){let a=document.createElement('a'),u=URL.createObjectURL(new Blob([text],{type}));a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}
+function csv(rows,name){
+ const quote=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+ const lines=rows.map(r=>r.map(quote).join(';')).join('\r\n');
+ dl(name,'\uFEFFsep=;\r\n'+lines,'text/csv;charset=utf-8');
+}
+function exportBudgetExcel(mode){
+ let pure=mode==='murni',title=pure?`DAFTAR PAGU MURNI TA ${activeYear}`:`DAFTAR PAGU PERUBAHAN TA ${activeYear}`;
+ let headers=pure?['No','Program','Kegiatan','Sub Kegiatan','Aktivitas','Rekening Belanja','Qty','Satuan','Harga Satuan','Pagu Murni']:['No','Program','Kegiatan','Sub Kegiatan','Aktivitas','Rekening Belanja','Qty','Satuan','Harga Satuan','Pagu Murni','Pagu Baru','Selisih Perubahan'];
+ let rows=[headers];db.forEach((x,i)=>{let base=[i+1,x.program,x.kegiatan,x.subKegiatan,x.aktivitas||x.activity,x.account,x.qty??'',x.unit,x.unitPrice,x.originalBudget??x.budget];rows.push(pure?base:[...base,x.budget,budgetDelta(x)])});
+ let escXml=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+ let html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Anggaran</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><style>table{border-collapse:collapse}td,th{border:1px solid #777;padding:6px}th{background:#dce6f1;font-weight:bold}.num{text-align:right}.spj-plan-table{min-width:650px}.spj-plan-table td:first-child{white-space:normal;min-width:330px}.spj-plan-table td:nth-child(2),.spj-plan-table td:nth-child(3){white-space:nowrap}@media(max-width:650px){.spj-plan-table{min-width:570px}}\n
+#bdtable .breakdown-global-table{min-width:1120px}
+#bdtable .breakdown-global-table th:first-child,#bdtable .breakdown-global-table td:first-child{position:sticky;left:0;min-width:230px;width:230px;max-width:230px;z-index:6;background:#fff}
+#bdtable .breakdown-global-table th:nth-child(2),#bdtable .breakdown-global-table td:nth-child(2){position:sticky;left:230px;min-width:125px;z-index:6;background:#f3f6fb}
+#bdtable .breakdown-global-table thead th:first-child,#bdtable .breakdown-global-table thead th:nth-child(2){z-index:9;background:#eaf0f7}
+#bdtable .breakdown-global-table tfoot th:first-child,#bdtable .breakdown-global-table tfoot th:nth-child(2){z-index:8;background:#eaf0f7}
+
+.actual-year-table tr.tree-program td{background:#dbeafe!important;color:#173b70;font-weight:700}
+.actual-year-table tr.tree-kegiatan td{background:#e8f1ff!important;color:#1d4e89;font-weight:700}
+.actual-year-table tr.tree-subkegiatan td{background:#eff6ff!important;color:#245b91;font-weight:700}
+.actual-year-table tr.tree-aktivitas td{background:#f1f5f9!important;color:#334155;font-weight:700}
+.actual-year-table tr.tree-account td{background:#fff!important;color:#1f2937;font-weight:400}
+.actual-year-table tr.tree-node td:first-child{z-index:4}
+
+#bdtable .breakdown-global-table th:first-child,#bdtable .breakdown-global-table td:first-child{font-size:11px;line-height:1.35}
+#bdtable .breakdown-global-table th:nth-child(2),#bdtable .breakdown-global-table td:nth-child(2){min-width:125px;width:125px}
+
+.spj-plan-table{min-width:1120px}
+#plantable .spj-plan-table th:first-child,#plantable .spj-plan-table td:first-child{position:sticky;left:0;min-width:230px;width:230px;max-width:230px;z-index:6;background:#fff}
+#plantable .spj-plan-table th:nth-child(2),#plantable .spj-plan-table td:nth-child(2){position:sticky;left:230px;min-width:125px;z-index:6;background:#f3f6fb}
+#plantable .spj-plan-table thead th:first-child,#plantable .spj-plan-table thead th:nth-child(2){z-index:9;background:#eaf0f7}
+#plantable .spj-plan-table tfoot th:first-child,#plantable .spj-plan-table tfoot th:nth-child(2){z-index:8;background:#eaf0f7}
+
+.spj-plan-table{min-width:720px}
+#plantable .spj-plan-table th:first-child,#plantable .spj-plan-table td:first-child{position:sticky;left:0;min-width:300px;width:300px;max-width:300px;z-index:6;background:#fff}
+#plantable .spj-plan-table thead th:first-child{z-index:9;background:#eaf0f7}
+#plantable .spj-plan-table tfoot th:first-child{z-index:8;background:#eaf0f7}
+</style></head><body><h2>${title}</h2><table><tr>${headers.map(h=>`<th>${escXml(h)}</th>`).join('')}</tr>${rows.slice(1).map(r=>`<tr>${r.map((v,i)=>`<td${i>=8?' class="num"':''}>${escXml(v)}</td>`).join('')}</tr>`).join('')}</table></body></html>`;
+ dl(pure?`Pagu-Murni-${activeYear}.xls`:`Pagu-Perubahan-${activeYear}.xls`,html,'application/vnd.ms-excel;charset=utf-8');
+}
+
+
+function downloadImportTemplate(){
+ const headers=['Bidang / UPT','Program','Kegiatan','Sub Kegiatan','Aktivitas','Rekening Belanja','Keterangan','Qty','Satuan','Harga Satuan','Pagu Murni','Pagu Baru'];
+ const example=['UPT Pemberdayaan Lembaga Seni dan Ekonomi Kreatif','3.26.04 Program Pengembangan Ekonomi Kreatif','3.26.04.1.01 Penyediaan Sarana dan Prasarana Kota Kreatif','3.26.04.1.01.0003 Koordinasi dan Sinkronisasi','Wilwatikta Creative Festival','5.1.02.02.001.00047 Belanja Jasa Penyelenggaraan Acara','Belanja kegiatan festival',1,'Paket',150000000,150000000,''];
+ if(window.XLSX){
+  const wb=XLSX.utils.book_new();
+  const guide=[
+   ['PETUNJUK PENGISIAN TEMPLATE IMPOR ANGGARAN'],
+   ['1. Isi data pada sheet DATA IMPOR, mulai baris 2.'],
+   ['2. Satu baris hanya untuk satu rekening belanja. Jangan membuat baris total/subtotal.'],
+   ['3. Ulangi Bidang/UPT, Program, Kegiatan, Sub Kegiatan, dan Aktivitas pada setiap baris rekening.'],
+   ['4. Rekening Belanja diisi kode rekening dan uraian dalam satu kolom. Contoh: 5.1.02.02.001.00047 Belanja Jasa.'],
+   ['5. Qty diisi angka; Satuan diisi Paket, Orang, Unit, Hari, dan sebagainya.'],
+   ['6. Harga Satuan dan Pagu Murni diisi angka tanpa mengetik Rp. Jika Pagu Murni kosong, aplikasi menghitung Qty × Harga Satuan.'],
+   ['7. Pagu Baru dikosongkan jika tidak ada perubahan. Isi hanya jika ada pagu setelah perubahan.'],
+   ['8. Keterangan boleh dikosongkan. Jangan mengubah nama judul kolom.'],
+   ['9. Hapus baris contoh pada sheet CONTOH sebelum menyalin data ke DATA IMPOR.'],
+   ['10. Setelah selesai, simpan sebagai .xlsx lalu impor melalui tombol Impor Data Excel di aplikasi.'],
+   [''],
+   ['PENTING: Jangan menggabungkan sel, mengubah urutan kolom, atau menambahkan baris jumlah total.']
+  ];
+  const wsGuide=XLSX.utils.aoa_to_sheet(guide);
+  wsGuide['!cols']=[{wch:110}];
+  XLSX.utils.book_append_sheet(wb,wsGuide,'PETUNJUK');
+  const wsData=XLSX.utils.aoa_to_sheet([headers]);
+  wsData['!cols']=[{wch:34},{wch:38},{wch:38},{wch:38},{wch:34},{wch:42},{wch:34},{wch:10},{wch:14},{wch:18},{wch:18},{wch:18}];
+  wsData['!autofilter']={ref:'A1:L1'};
+  wsData['!freeze']={xSplit:0,ySplit:1};
+  for(let i=0;i<50;i++)XLSX.utils.sheet_add_aoa(wsData,[Array(headers.length).fill('')],{origin:-1});
+  XLSX.utils.book_append_sheet(wb,wsData,'DATA IMPOR');
+  const wsExample=XLSX.utils.aoa_to_sheet([headers,example]);
+  wsExample['!cols']=wsData['!cols'];
+  XLSX.utils.book_append_sheet(wb,wsExample,'CONTOH');
+  XLSX.writeFile(wb,`Template-Impor-Anggaran-${activeYear}.xlsx`);
+ }else{
+  const rows=[headers,example];
+  csv(rows,`Template-Impor-Anggaran-${activeYear}-CONTOH.csv`);
+  alert('Pustaka Excel belum termuat. File CSV contoh diunduh. Untuk template dengan petunjuk lengkap, sambungkan perangkat ke internet lalu unduh kembali.');
+ }
+}
+
+
+
+function importStatus(show,message,percent=0,detail=''){
+ let el=document.getElementById('importStatusOverlay');
+ if(!show){if(el)el.remove();return}
+ if(!el){
+  el=document.createElement('div');el.id='importStatusOverlay';
+  el.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(9,20,38,.58);display:flex;align-items:center;justify-content:center;padding:18px;font-family:inherit';
+  el.innerHTML=`<div style="background:#fff;color:#172033;border-radius:16px;padding:24px;width:min(420px,100%);box-shadow:0 18px 60px #0004"><div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div class="import-spinner" style="width:26px;height:26px;border:3px solid #dbe5f2;border-top-color:#1769e0;border-radius:50%;animation:importSpin .8s linear infinite"></div><b id="importStatusTitle">Memproses file Excel...</b></div><div id="importStatusDetail" style="font-size:13px;color:#64748b;margin-bottom:14px">Mohon tunggu, jangan tutup aplikasi.</div><div style="height:9px;background:#e8edf5;border-radius:20px;overflow:hidden"><div id="importStatusBar" style="height:100%;width:0;background:#1769e0;transition:width .2s"></div></div><div id="importStatusPercent" style="font-size:12px;color:#64748b;text-align:right;margin-top:6px">0%</div></div>`;
+  document.head.insertAdjacentHTML('beforeend','<style>@keyframes importSpin{to{transform:rotate(360deg)}}</style>');
+  document.body.appendChild(el);
+ }
+ const title=el.querySelector('#importStatusTitle'),detailEl=el.querySelector('#importStatusDetail'),bar=el.querySelector('#importStatusBar'),pct=el.querySelector('#importStatusPercent');
+ if(title)title.textContent=message;
+ if(detailEl)detailEl.textContent=detail||'Mohon tunggu, jangan tutup aplikasi.';
+ if(bar)bar.style.width=Math.max(0,Math.min(100,percent))+'%';
+ if(pct)pct.textContent=Math.max(0,Math.min(100,percent))+'%';
+}
+function excelImportRows(file){
+ return new Promise(async(resolve,reject)=>{
+  try{
+   if(!window.XLSX)throw new Error('Modul Excel belum termuat. Sambungkan perangkat ke internet, lalu muat ulang aplikasi.');
+   const wb=XLSX.read(await file.arrayBuffer(),{type:'array',cellDates:false});
+   const norm=v=>String(v??'').toLowerCase().replace(/[\s_\-\/]+/g,'').replace(/[^a-z0-9]/g,'');
+   let sheet=wb.SheetNames.find(n=>norm(n)==='dataimpor');
+   if(!sheet)sheet=wb.SheetNames.find(n=>{
+    const a=XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,defval:''});
+    const hs=(a[0]||[]).map(norm);
+    return hs.includes('aktivitas')||hs.includes('rekeningbelanja')||hs.includes('rekening');
+   });
+   if(!sheet)throw new Error('Sheet DATA IMPOR tidak ditemukan.');
+   const rows=XLSX.utils.sheet_to_json(wb.Sheets[sheet],{header:1,defval:'',raw:true,blankrows:false});
+   if(rows.length<2)throw new Error('Sheet DATA IMPOR belum berisi data.');
+   resolve(rows);
+  }catch(e){reject(e)}
+ });
+}
+function importHeaderMap(rows){
+ const norm=v=>String(v??'').toLowerCase().replace(/[\s_\-\/]+/g,'').replace(/[^a-z0-9]/g,'');
+ const h=(rows[0]||[]).map(norm),find=(...names)=>h.findIndex(v=>names.includes(v));
+ return {bidang:find('bidangupt','bidang','_bidang'),program:find('program','_program'),kegiatan:find('kegiatan','_kegiatan'),sub:find('subkegiatan','_subkegiatan'),aktivitas:find('aktivitas','_aktivitas'),account:find('rekeningbelanja','rekening','kodedanuraianrekeningbelanja','_rekening'),rowtype:find('rowtype'),months:months.map(m=>find(norm(m),norm(m.slice(0,3))))};
+}
+function importActivityKeyFromRow(r,c){
+ const clean=i=>i<0?'':String(r[i]??'').trim().replace(/\s+/g,' ').toLowerCase();
+ return [clean(c.bidang),clean(c.program),clean(c.kegiatan),clean(c.sub),clean(c.aktivitas)].join('|');
+}
+function downloadImportWorkbook(filename,headers,guide,example){
+ if(!window.XLSX){alert('Modul Excel belum termuat. Sambungkan perangkat ke internet, lalu muat ulang aplikasi.');return}
+ const wb=XLSX.utils.book_new();
+ const wsGuide=XLSX.utils.aoa_to_sheet([['PETUNJUK'],...guide.map(x=>[x])]);wsGuide['!cols']=[{wch:110}];
+ const ws=XLSX.utils.aoa_to_sheet([headers]);
+ ws['!cols']=headers.map(x=>({wch:Math.max(15,String(x).length+5)}));
+ ws['!autofilter']={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:0,c:headers.length-1}})};
+ ws['!freeze']={xSplit:0,ySplit:1};
+ XLSX.utils.book_append_sheet(wb,wsGuide,'PETUNJUK');
+ XLSX.utils.book_append_sheet(wb,ws,'DATA IMPOR');
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet([headers,example]),'CONTOH');
+ XLSX.writeFile(wb,filename);
+}
+function styleImportSheet(ws,rows,opts={}){
+ const thin={style:'thin',color:{rgb:'D5DDE8'}},border={top:thin,bottom:thin,left:thin,right:thin};
+ const range=XLSX.utils.decode_range(ws['!ref']||'A1:A1');
+ for(let R=range.s.r;R<=range.e.r;R++){
+  for(let C=range.s.c;C<=range.e.c;C++){
+   const ref=XLSX.utils.encode_cell({r:R,c:C}),cell=ws[ref]||(ws[ref]={t:'s',v:''});
+   const isHeader=R===0,isTotal=opts.totalRow===R,isHierarchy=opts.hierarchyRows&&opts.hierarchyRows.has(R);
+   cell.s={
+    font:{name:'Calibri',sz:10,bold:isHeader||isTotal||(isHierarchy&&opts.boldHierarchy),italic:!!(opts.italicRows&&opts.italicRows.has(R)),color:{rgb:'17324D'}},
+    alignment:{vertical:'center',horizontal:isHeader?'center':(C===0?'left':'right'),wrapText:true},
+    border,
+    ...(isHeader?{fill:{fgColor:{rgb:'EAF0F7'}}}:{}),
+    ...(isTotal?{fill:{fgColor:{rgb:'DCE6F1'}}}:{})
+   };
+   if(R>0&&C>0&&typeof cell.v==='number')cell.s.numFmt='#,##0;[Red](#,##0);-';
+  }
+ }
+ ws['!rows']=Array.from({length:range.e.r+1},(_,i)=>({hpt:i===0?28:22}));
+ if(ws['!rows'].length)ws['!rows'][0]={hpt:34};
+}
+function hiddenMetaCols(headers,values,visibleWidths){
+ const metaHeaders=['_BIDANG','_PROGRAM','_KEGIATAN','_SUB_KEGIATAN','_AKTIVITAS','_REKENING','_ROWTYPE'];
+ return {metaHeaders,visibleWidths};
+}
+function downloadBreakdownTemplate(){
+ if(!window.XLSX){alert('Modul Excel belum termuat. Sambungkan perangkat ke internet, lalu muat ulang aplikasi.');return}
+ const wb=XLSX.utils.book_new(),groups=activityBreakdownGroups();
+ const visibleHeaders=['AKTIVITAS / REKENING BELANJA','TOTAL PAGU',...months.map(m=>m.toUpperCase()),'TOTAL BREAKDOWN','SELISIH'];
+ const metaHeaders=['_BIDANG','_PROGRAM','_KEGIATAN','_SUB_KEGIATAN','_AKTIVITAS','_REKENING','_ROWTYPE'];
+ const data=[[...visibleHeaders,...metaHeaders]],activityRows=new Set();
+ groups.forEach(g=>{
+  const x=g.items[0],activityIndex=data.length;
+  data.push([g.activity,g.budget,...g.plan,sum(g.plan),g.budget-sum(g.plan),x.bidang||'',x.program||'',x.kegiatan||'',g.subKegiatan||'',g.activity||'','', 'ACTIVITY']);
+  activityRows.add(activityIndex);
+  g.accounts.forEach(a=>{
+   data.push(['    '+a.account,a.budget,...a.plan,sum(a.plan),a.budget-sum(a.plan),x.bidang||'',x.program||'',x.kegiatan||'',g.subKegiatan||'',g.activity||'',a.account,'ACCOUNT']);
+  });
+ });
+ const totals=[...groups.map(g=>g.budget)],totalBudget=sum(totals);
+ totalRow=data.length;
+ data.push(['TOTAL',totalBudget,...months.map((_,i)=>sum(groups.flatMap(g=>g.accounts.map(a=>a.plan[i]||0)))),sum(groups.map(g=>sum(g.plan))),totalBudget-sum(groups.map(g=>sum(g.plan))),'','','','','','','TOTAL']);
+ const ws=XLSX.utils.aoa_to_sheet(data);
+ ws['!cols']=[{wch:56},{wch:20},...months.map(()=>({wch:15})),{wch:20},{wch:18},...metaHeaders.map(()=>({wch:2,hidden:true}))];
+ ws['!freeze']={xSplit:2,ySplit:1};
+ ws['!autofilter']={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:data.length-2,c:visibleHeaders.length-1}})};
+ styleImportSheet(ws,data,{totalRow,hierarchyRows:activityRows,boldHierarchy:true});
+ XLSX.utils.book_append_sheet(wb,ws,'DATA IMPOR');
+ const guide=[
+  ['PETUNJUK IMPOR BREAKDOWN ANGGARAN PER AKTIVITAS DAN REKENING'],
+  ['Template otomatis terisi dari Data Anggaran dan Breakdown yang tersimpan di aplikasi.'],
+  ['Setiap Aktivitas ditampilkan sebagai baris induk, kemudian rekening belanja sebagai baris rinci di bawahnya.'],
+  ['Rekening dengan kode dan uraian sama dalam Aktivitas yang sama digabung menjadi satu baris.'],
+  ['Ubah hanya nominal Januari sampai Desember pada baris rekening (baris yang diawali spasi). Baris Aktivitas dan TOTAL hanya ringkasan.'],
+  ['Jangan mengubah nama Aktivitas, Rekening Belanja, atau kolom tersembunyi karena digunakan untuk pencocokan.'],
+  ['Simpan sebagai .xlsx, lalu pilih Impor Excel pada menu Breakdown Anggaran.'],
+  ['Impor mengganti nilai breakdown bulanan rekening yang cocok.']
+ ];
+ const wg=XLSX.utils.aoa_to_sheet(guide);wg['!cols']=[{wch:120}];
+ XLSX.utils.book_append_sheet(wb,wg,'PETUNJUK');
+ XLSX.writeFile(wb,'Template-Impor-Breakdown.xlsx');
+}
+function downloadActualTemplate(){
+ if(!window.XLSX){alert('Modul Excel belum termuat. Sambungkan perangkat ke internet, lalu muat ulang aplikasi.');return}
+ const wb=XLSX.utils.book_new();
+ const hasNew=db.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
+ const visibleHeaders=['PROGRAM / KEGIATAN / SUB KEGIATAN / AKTIVITAS / REKENING','PAGU MURNI',...(hasNew?['PAGU BARU']:[]),...months.map(m=>m.toUpperCase()),'SISA SEMESTER I','SISA SEMESTER II','SISA SATU TAHUN'];
+ const metaHeaders=['_BIDANG','_PROGRAM','_KEGIATAN','_SUB_KEGIATAN','_AKTIVITAS','_REKENING','_ROWTYPE'];
+ const rows=[ [...visibleHeaders,...metaHeaders] ];
+ const root={children:new Map(),accounts:[]};
+ const labels=x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas'];
+ db.forEach(x=>{let n=root;labels(x).forEach((label,idx)=>{const k=String(label).trim().toLowerCase();if(!n.children.has(k))n.children.set(k,{label,level:idx,children:new Map(),accounts:[]});n=n.children.get(k)});n.accounts.push(x)});
+ const hierarchyRows=new Set(),italicRows=new Set();
+ function addRow(label,level,pure,budget,account=null){
+  const visible=[`${'  '.repeat(level)}${label}`,pure,...(hasNew?[budget]:[]),...Array(12).fill(''), '', '', ''];
+  const meta=account?[account.bidang||'',account.program||'',account.kegiatan||'',account.subKegiatan||'',account.aktivitas||account.activity||'',account.account||'','ACCOUNT']:['','','','','','','HIERARCHY'];
+  const rowIndex=rows.length;rows.push([...visible,...meta]);hierarchyRows.add(rowIndex);
+  if(level===3)italicRows.add(rowIndex);
+ }
+ function renderNode(n){
+  const all=[];const collect=z=>{if(z.level===3)all.push(...z.accounts);else [...z.children.values()].forEach(collect)};collect(n);
+  addRow(n.label,n.level,sum(all.map(x=>x.originalBudget??x.budget)),sum(all.map(x=>x.budget)));
+  if(n.level===3){
+   const accountGroups=new Map();
+   n.accounts.forEach(x=>{
+    const k=String(x.account||'Tanpa Rekening').trim().replace(/\s+/g,' ').toLowerCase();
+    if(!accountGroups.has(k))accountGroups.set(k,{account:x.account||'Tanpa Rekening',items:[]});
+    accountGroups.get(k).items.push(x);
+   });
+   accountGroups.forEach(g=>{
+    const items=g.items,first=items[0];
+    const agg=fn=>items.reduce((a,x)=>a+(Number(fn(x))||0),0);
+    const visible=[`      ${g.account}`,agg(x=>x.originalBudget??x.budget),...(hasNew?[agg(x=>x.budget)]:[]),...months.map((_,m)=>agg(x=>(x.actual||[])[m])),agg(spjSemester1Remaining),agg(spjSemester2Remaining),agg(spjYearRemaining)];
+    const meta=[first.bidang||'',first.program||'',first.kegiatan||'',first.subKegiatan||'',first.aktivitas||first.activity||'',g.account,'ACCOUNT'];
+    rows.push([...visible,...meta]);
+   });
+  }else [...n.children.values()].forEach(renderNode);
+ }
+ [...root.children.values()].forEach(renderNode);
+ const totalPure=sum(db.map(x=>x.originalBudget??x.budget)),totalBudget=sum(db.map(x=>x.budget));
+ const totalActual=months.map((_,i)=>sum(db.map(x=>x.actual[i]||0)));
+ rows.push(['TOTAL',totalPure,...(hasNew?[totalBudget]:[]),...totalActual,sum(db.map(spjSemester1Remaining)),sum(db.map(spjSemester2Remaining)),sum(db.map(spjYearRemaining)),'','','','','','','TOTAL']);
+ const totalRow=rows.length-1;
+ const ws=XLSX.utils.aoa_to_sheet(rows);
+ ws['!cols']=[
+  {wch:72},{wch:19},...(hasNew?[{wch:19}]:[]),...months.map(()=>({wch:15})),{wch:19},{wch:19},{wch:19},
+  ...metaHeaders.map(()=>({wch:2,hidden:true}))
+ ];
+ ws['!freeze']={xSplit:1,ySplit:1};
+ styleImportSheet(ws,rows,{totalRow,hierarchyRows,italicRows,boldHierarchy:true});
+ XLSX.utils.book_append_sheet(wb,ws,'DATA IMPOR');
+ const guide=[
+  ['PETUNJUK IMPOR REALISASI ANGGARAN'],
+  ['Template ini otomatis diisi dari Data Anggaran dan Realisasi yang sedang tersimpan di aplikasi.'],
+  ['Susunan kolom dan hierarki mengikuti tampilan tabel Realisasi Anggaran pada aplikasi.'],
+  ['Ubah hanya nominal realisasi Januari sampai Desember pada baris rekening belanja.'],
+  ['Baris Program, Kegiatan, Sub Kegiatan, Aktivitas, dan TOTAL adalah baris tampilan; tidak perlu diubah.'],
+  ['Jangan mengubah nama rekening maupun kolom tersembunyi. Kolom tersembunyi digunakan untuk mencocokkan rekening dengan Data Anggaran.'],
+  ['Setelah diedit, simpan sebagai .xlsx lalu pilih Impor Excel pada menu Realisasi Anggaran.'],
+  ['Nilai realisasi pada rekening yang cocok akan ditimpa oleh angka dari file.']
+ ];
+ const wg=XLSX.utils.aoa_to_sheet(guide);wg['!cols']=[{wch:120}];
+ XLSX.utils.book_append_sheet(wb,wg,'PETUNJUK');
+ XLSX.writeFile(wb,'Template-Impor-Realisasi.xlsx');
+}
+async function importBreakdownFile(file){
+ if(!file)return;
+ importStatus(true,'Membaca file breakdown...',10,file.name);
+ try{
+  const rows=await excelImportRows(file),c=importHeaderMap(rows);
+  if(c.account<0||c.aktivitas<0||c.months.some(i=>i<0))throw new Error('Kolom Aktivitas, Rekening Belanja, dan Januari–Desember wajib tersedia. Gunakan Template Impor Breakdown terbaru.');
+  const norm=v=>String(v??'').trim().replace(/\s+/g,' ').toLowerCase();
+  const activityKey=x=>[x.bidang,x.program,x.kegiatan,x.subKegiatan,x.aktivitas||x.activity].map(norm).join('|');
+  const accountKey=x=>norm(x.account);
+  const lookup=new Map();
+  activityBreakdownGroups().forEach(g=>g.accounts.forEach(a=>{
+   const x=a.items[0],key=[activityKey(x),accountKey(x)].join('||');
+   lookup.set(key,{g,a});
+  }));
+  let updated=0,skipped=0,invalid=0;
+  for(let ri=1;ri<rows.length;ri++){
+   const r=rows[ri];if(!r||!r.some(v=>String(v??'').trim()!==''))continue;
+   const rowType=c.rowtype>=0?norm(r[c.rowtype]):'account';
+   if(rowType!=='account'){skipped++;continue}
+   const ak=[c.bidang,c.program,c.kegiatan,c.sub,c.aktivitas].map(i=>norm(i<0?'':r[i])).join('|');
+   const rk=norm(r[c.account]),match=lookup.get(ak+'||'+rk);
+   if(!match){skipped++;continue}
+   const vals=c.months.map(i=>typeof r[i]==='number'?r[i]:parseNominal(r[i]));
+   if(vals.some(v=>!Number.isFinite(v)||v<0)){invalid++;continue}
+   vals.forEach((v,m)=>{
+    const amount=Math.max(0,Math.round(v)),items=match.a.items,weights=items.map(x=>Math.max(0,Number(x.budget)||0)),tw=sum(weights);let assigned=0;
+    items.forEach((x,j)=>{if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);const part=j===items.length-1?amount-assigned:(tw>0?Math.floor(amount*weights[j]/tw):Math.floor(amount/items.length));x.plan[m]=part;assigned+=part});
+   });
+   updated++;
+   if(ri%10===0)importStatus(true,'Memproses breakdown rekening...',20+Math.round(ri/rows.length*70),'Baris '+ri+' dari '+rows.length);
+  }
+  if(!updated)throw new Error('Tidak ada rekening yang cocok. Pastikan Aktivitas dan Rekening Belanja sama persis dengan Data Anggaran.');
+  persist();render();importStatus(true,'Impor breakdown berhasil',100,updated+' rekening diperbarui; '+skipped+' baris ringkasan/tidak cocok dilewati; '+invalid+' tidak valid.');
+  setTimeout(()=>importStatus(false),2200);
+ }catch(e){importStatus(false);alert('Impor breakdown gagal: '+e.message)}
+ const input=document.getElementById('breakdownImportFile');if(input)input.value='';
+}
+async function importActualFile(file){
+ if(!file)return;
+ importStatus(true,'Membaca file realisasi...',10,file.name);
+ try{
+  const rows=await excelImportRows(file),c=importHeaderMap(rows);
+  if(c.account<0||c.months.some(i=>i<0))throw new Error('Kolom Rekening Belanja dan 12 kolom bulan (Januari–Desember) wajib tersedia. Gunakan Template Impor Realisasi.');
+  const norm=v=>String(v??'').replace(/\u00a0/g,' ').trim().replace(/\s+/g,' ').toLowerCase();
+  const path=x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas',x.account||'Tanpa Rekening'].map(norm).join('|');
+  const map=new Map();
+  db.forEach(x=>{const k=path(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});
+  let updated=0,unmatched=0,invalid=0,hierarchySkipped=0,totalSkipped=0,groupedUpdated=0;
+  const unmatchedDetails=[];
+  for(let ri=1;ri<rows.length;ri++){
+   const r=rows[ri];
+   if(!r||!r.some(v=>String(v??'').trim()!==''))continue;
+   const rowType=c.rowtype>=0?norm(r[c.rowtype]):'account';
+   if(rowType==='hierarchy'){hierarchySkipped++;continue}
+   if(rowType==='total'){totalSkipped++;continue}
+   if(rowType&&rowType!=='account'){unmatched++;continue}
+   const k=[c.program,c.kegiatan,c.sub,c.aktivitas,c.account].map((i,j)=>norm(i<0?(['Tanpa Program','Tanpa Kegiatan','Tanpa Sub Kegiatan','Tanpa Aktivitas','Tanpa Rekening'][j]):r[i])).join('|');
+   const matches=map.get(k);
+   if(!matches||!matches.length){
+    unmatched++;
+    if(unmatchedDetails.length<8)unmatchedDetails.push(String(r[c.account]||r[0]||'Rekening tanpa nama'));
+    continue;
+   }
+   const vals=c.months.map(i=>typeof r[i]==='number'?r[i]:parseNominal(r[i]));
+   if(vals.some(v=>!Number.isFinite(v)||v<0)){invalid++;continue}
+   vals.forEach((v,m)=>{
+    const weights=matches.map(x=>Math.max(0,Number((x.plan||[])[m])||0));
+    let tw=sum(weights);
+    if(tw<=0){weights.splice(0,weights.length,...matches.map(()=>1));tw=matches.length}
+    let assigned=0;
+    matches.forEach((x,j)=>{
+     if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);
+     const part=j===matches.length-1?v-assigned:Math.floor(v*weights[j]/tw);
+     x.actual[m]=part;
+     assigned+=part;
+    });
+   });
+   if(matches.length>1)groupedUpdated++;
+   updated++;
+   if(ri%10===0)importStatus(true,'Memproses realisasi...',20+Math.round(ri/rows.length*70),'Baris '+ri+' dari '+rows.length);
+  }
+  if(!updated)throw new Error('Tidak ada rekening yang berhasil diperbarui. Periksa kesesuaian identitas rekening dengan Data Anggaran.');
+  persist();
+  render();
+  const detail=updated+' rekening diperbarui'+(groupedUpdated?', termasuk '+groupedUpdated+' rekening gabungan yang dibagikan ke beberapa data barang':'')+'. '+hierarchySkipped+' baris hierarki dan '+totalSkipped+' baris total dilewati sebagaimana mestinya. '+unmatched+' rekening tidak ditemukan; '+invalid+' baris nominal tidak valid.';
+  importStatus(true,'Impor realisasi berhasil',100,detail);
+  if(unmatchedDetails.length)console.warn('Rekening yang tidak ditemukan saat impor:',unmatchedDetails);
+  setTimeout(()=>importStatus(false),3500);
+ }catch(e){
+  importStatus(false);
+  alert('Impor realisasi gagal: '+e.message);
+ }
+ const input=document.getElementById('actualImportFile');
+ if(input)input.value='';
+}
+function importBudgetFile(file){
+ if(!file)return;
+ importStatus(true,'Menyiapkan impor...',5,'File: '+file.name);
+ const readRows=async()=>{
+  let rows=[];
+  const norm=v=>String(v??'').toLowerCase().replace(/[\s_\-\/]+/g,'').replace(/[^a-z0-9]/g,'');
+  const parseCSV=text=>{
+   const out=[];let current=[],cell='',quoted=false;
+   const first=text.split(/\r?\n/,1)[0];
+   const delimiter=(first.match(/;/g)||[]).length>(first.match(/,/g)||[]).length?';':',';
+   for(let i=0;i<text.length;i++){
+    const ch=text[i],next=text[i+1];
+    if(ch==='"'&&quoted&&next==='"'){cell+='"';i++}
+    else if(ch==='"')quoted=!quoted;
+    else if(ch===delimiter&&!quoted){current.push(cell);cell=''}
+    else if((ch==='\n'||ch==='\r')&&!quoted){
+     if(ch==='\r'&&next==='\n')i++;
+     current.push(cell);if(current.some(v=>String(v).trim()!==''))out.push(current);
+     current=[];cell='';
+    }else cell+=ch;
+   }
+   current.push(cell);if(current.some(v=>String(v).trim()!==''))out.push(current);
+   return out;
+  };
+  try{
+   importStatus(true,'Membaca file...',15,'Membuka '+file.name);
+   if(/\.csv$/i.test(file.name)){
+    rows=parseCSV((await file.text()).replace(/^\uFEFF/,''));
+   }else{
+    if(!window.XLSX)throw new Error('Modul pembaca Excel belum termuat. Pastikan tablet tersambung internet, lalu buka ulang aplikasi. Jika aplikasi dibuka dari file lokal tanpa internet, impor XLSX belum dapat dijalankan.');
+    const buffer=await file.arrayBuffer();
+    importStatus(true,'Membaca struktur Excel...',35,'Mencari lembar DATA IMPOR.');
+    const wb=XLSX.read(buffer,{type:'array',cellDates:false});
+    let target=wb.SheetNames.find(n=>norm(n)==='dataimpor');
+    if(!target){
+     target=wb.SheetNames.find(n=>{
+      const vals=XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,defval:''});
+      const h=(vals[0]||[]).map(norm);
+      return h.includes('rekeningbelanja')||h.includes('rekening');
+     });
+    }
+    if(!target)throw new Error('Sheet DATA IMPOR tidak ditemukan. Gunakan template terbaru dan jangan mengubah judul kolom.');
+    importStatus(true,'Membaca data rekening...',55,'Lembar yang dibaca: '+target);
+    rows=XLSX.utils.sheet_to_json(wb.Sheets[target],{header:1,defval:'',raw:true,blankrows:false});
+   }
+   rows=rows.filter(r=>Array.isArray(r)&&r.some(v=>String(v??'').trim()!==''));
+   if(!rows||rows.length<2)throw new Error('Sheet DATA IMPOR belum berisi data. Isi data mulai baris kedua.');
+   const heads=rows[0].map(norm),idx=(...names)=>heads.findIndex(h=>names.includes(h));
+   const col={
+    bidang:idx('bidangupt','bidang'),program:idx('program'),kegiatan:idx('kegiatan'),
+    sub:idx('subkegiatan'),aktivitas:idx('aktivitas'),
+    account:idx('rekeningbelanja','rekening','kodedanuraianrekeningbelanja'),
+    ket:idx('keterangan'),qty:idx('qty','kuantitas','volume'),unit:idx('satuan'),
+    price:idx('hargasatuan'),pure:idx('pagumurni'),budget:idx('pagubaru','papbd')
+   };
+   if(col.account<0)throw new Error('Kolom Rekening Belanja tidak ditemukan. Judul kolom harus sama dengan template.');
+   const clean=v=>String(v??'').replace(/\u00a0/g,' ').trim().replace(/\s+/g,' ');
+   let added=0,skipped=0,invalid=0;
+   importStatus(true,'Memproses rekening...',65,'Menyiapkan '+(rows.length-1)+' baris data.');
+   for(let rIndex=1;rIndex<rows.length;rIndex++){
+    const r=rows[rIndex],account=clean(r[col.account]);
+    if(!account||/^contoh\b/i.test(account)){skipped++;continue}
+    const z={
+     bidang:clean(col.bidang<0?'':r[col.bidang]),program:clean(col.program<0?'':r[col.program]),
+     kegiatan:clean(col.kegiatan<0?'':r[col.kegiatan]),subKegiatan:clean(col.sub<0?'':r[col.sub]),
+     aktivitas:clean(col.aktivitas<0?'':r[col.aktivitas])
+    };
+    const structureKey=o=>JSON.stringify([o.bidang,o.program,o.kegiatan,o.subKegiatan,o.aktivitas].map(clean));
+    let st=structures.find(a=>structureKey(a)===structureKey(z));
+    if(!st){st={id:'STR'+Date.now()+Math.random(),...z};structures.push(st)}
+    const num=i=>{if(i<0)return 0;const v=r[i];if(typeof v==='number')return v;return parseNominal(v)};
+    const qty=col.qty<0?1:(num(col.qty)||0),price=num(col.price);
+    const pure=col.pure<0||String(r[col.pure]??'').trim()===''?qty*price:num(col.pure);
+    const budget=col.budget<0||String(r[col.budget]??'').trim()===''?pure:num(col.budget);
+    if(!Number.isFinite(pure)||!Number.isFinite(budget)){invalid++;continue}
+    db.push({id:'IMP'+Date.now()+Math.random(),...z,structureId:st.id,account,
+     keterangan:clean(col.ket<0?'':r[col.ket]),qty,unit:clean(col.unit<0?'':r[col.unit]),
+     unitPrice:price,originalBudget:pure,budget,plan:Array(12).fill(0),actual:Array(12).fill(0),components:{}});
+    added++;
+    if(rIndex%10===0)importStatus(true,'Memproses rekening...',65+Math.round((rIndex/(rows.length-1))*25),'Sudah diproses '+rIndex+' dari '+(rows.length-1)+' baris.');
+   }
+   if(!added)throw new Error('Tidak ada rekening yang berhasil diimpor. Pastikan kolom Rekening Belanja terisi.');
+   importStatus(true,'Menyimpan data...',94,added+' rekening siap disimpan.');
+   persist();persistStructures();
+   render();
+   importStatus(true,'Impor berhasil!',100,added+' rekening berhasil ditambahkan'+(skipped?', '+skipped+' baris kosong dilewati':'')+(invalid?', '+invalid+' baris tidak valid dilewati':'')+'.');
+   setTimeout(()=>importStatus(false),1800);
+   const input=document.getElementById('importFile');if(input)input.value='';
+  }catch(e){
+   importStatus(false);
+   alert('Impor gagal: '+(e&&e.message?e.message:String(e)));
+   const input=document.getElementById('importFile');if(input)input.value='';
+  }
+ };
+ readRows().catch(e=>{importStatus(false);alert('Impor gagal: '+(e&&e.message?e.message:String(e)))});
+}
+
+function exportPlanExcel(){
+ try{
+  if(typeof XLSX==='undefined'||!XLSX.utils||!XLSX.writeFile){
+   alert('Pustaka Excel belum berhasil dimuat. Periksa koneksi internet, lalu muat ulang aplikasi.');
+   return;
+  }
+  const m=+document.getElementById('rm').value;
+  const title='RENCANA SPJ '+String(months[m]||'').toUpperCase();
+  const eligible=db.filter(x=>spjMonthlyPlan(x,m)>0&&!spjDeferredHas(x.id,m));
+  const root={children:new Map(),amount:0};
+  eligible.forEach(x=>{
+   const path=[
+    ['Program',x.program],
+    ['Kegiatan',x.kegiatan],
+    ['Sub Kegiatan',x.subKegiatan],
+    ['Aktivitas',x.aktivitas||x.activity],
+    ['Rekening',x.account]
+   ].filter(v=>String(v[1]||'').trim());
+   if(!path.length)return;
+   let node=root;
+   path.forEach(([kind,value],idx)=>{
+    const label=String(value).trim();
+    const key=kind+'|'+label;
+    if(!node.children.has(key))node.children.set(key,{kind,label,children:new Map(),amount:0,depth:idx});
+    node=node.children.get(key);
+   });
+   node.amount+=Number(spjMonthlyPlan(x,m))||0;
+  });
+  const data=[[title],['URAIAN','NOMINAL SPJ']];
+  function flatten(node){
+   node.children.forEach(child=>{
+    const isAccount=child.kind==='Rekening';
+    data.push([('　'.repeat(child.depth))+child.label,isAccount?child.amount:'']);
+    flatten(child);
+   });
+  }
+  flatten(root);
+  const total=eligible.reduce((a,x)=>a+(Number(spjMonthlyPlan(x,m))||0),0);
+  data.push(['TOTAL RENCANA SPJ',total]);
+  const ws=XLSX.utils.aoa_to_sheet(data);
+  ws['!cols']=[{wch:76},{wch:24}];
+  ws['!merges']=[{s:{r:0,c:0},e:{r:0,c:1}}];
+  ws['!freeze']={xSplit:0,ySplit:2};
+  const thin={style:'thin',color:{rgb:'AAB7C8'}};
+  const border={top:thin,bottom:thin,left:thin,right:thin};
+  const range=XLSX.utils.decode_range(ws['!ref']);
+  const totalRow=range.e.r;
+  for(let R=0;R<=range.e.r;R++){
+   for(let C=0;C<=1;C++){
+    const addr=XLSX.utils.encode_cell({r:R,c:C});
+    if(!ws[addr])ws[addr]={t:'s',v:''};
+    const cell=ws[addr];
+    cell.s={...(cell.s||{}),border,alignment:{vertical:'center',wrapText:true}};
+    if(R===0)cell.s={...cell.s,font:{bold:true,size:16,color:{rgb:'FFFFFF'}},fill:{fgColor:{rgb:'17365D'}},alignment:{horizontal:'center',vertical:'center'}};
+    else if(R===1)cell.s={...cell.s,font:{bold:true,color:{rgb:'FFFFFF'}},fill:{fgColor:{rgb:'245A9A'}},alignment:{horizontal:C===1?'center':'left',vertical:'center'}};
+    else if(R===totalRow)cell.s={...cell.s,font:{bold:true,color:{rgb:'17365D'}},fill:{fgColor:{rgb:'DCE6F1'}}};
+    if(C===1&&R>=2&&typeof cell.v==='number'){
+     cell.z='"Rp" #,##0;[Red]("Rp" #,##0);-';
+     cell.s={...cell.s,alignment:{horizontal:'right',vertical:'center'}};
+    }
+   }
+  }
+  ws['!rows']=[{hpt:30},{hpt:24}];
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Rencana SPJ');
+  XLSX.writeFile(wb,'Rencana-SPJ-'+months[m]+'-'+activeYear+'.xlsx');
+ }catch(err){
+  console.error('Ekspor Excel Rencana SPJ gagal:',err);
+  alert('Ekspor Excel gagal: '+(err&&err.message?err.message:String(err)));
+ }
+}
+function exportYear(){let rows=[['Bidang / UPT','Program','Kegiatan','Sub Kegiatan','Aktivitas','Rekening','Pagu Murni','Pagu Baru','Selisih Perubahan','Total Breakdown','Total Realisasi','Sisa Pagu',...months.map(m=>'Rencana '+m),...months.map(m=>'Realisasi '+m)]];db.forEach(x=>rows.push([x.bidang,x.program,x.kegiatan,x.subKegiatan,x.aktivitas||x.activity,x.account,x.originalBudget??x.budget,x.budget,budgetDelta(x),sum(x.plan),sum(x.actual),x.budget-sum(x.actual),...x.plan,...x.actual]));csv(rows,'Kontrol-Anggaran-'+activeYear+'.csv')}
+
+function makeDatabaseId(date=new Date()){
+ const dd=String(date.getDate()).padStart(2,'0');
+ const mm=String(date.getMonth()+1).padStart(2,'0');
+ const yy=String(date.getFullYear()).slice(-2);
+ return 'DB'+dd+mm+yy;
+}
+function currentDatabaseId(){return localStorage.getItem('simAnggaranDatabaseId_'+activeYear)||'DB—'}
+function updateDatabaseBadge(){
+ const el=document.getElementById('databaseBadge');
+ if(el)el.textContent='Database: '+currentDatabaseId().toLowerCase();
+}
+function exportDatabase(){
+ try{
+  persist();savePlanState();
+  const exportedAt=new Date();
+  const databaseId=makeDatabaseId(exportedAt);
+  localStorage.setItem('simAnggaranDatabaseId_'+activeYear,databaseId);
+  updateDatabaseBadge();
+  const payload={
+   app:'ANGGARAN_TAHUNAN',
+   format:'ANGGARAN_DATABASE',
+   schemaVersion:1,
+   databaseId:databaseId,
+   exportedAt:exportedAt.toISOString(),
+   year:activeYear,
+   data:db,
+   structures:structures,
+   spj:{deferred:spjDeferred,manual:spjManual}
+  };
+  dl(databaseId+'-ANGGARAN-'+activeYear+'.json',JSON.stringify(payload,null,2),'application/json;charset=utf-8');
+ }catch(e){alert('Ekspor database gagal: '+(e&&e.message?e.message:String(e)))}
+}
+async function importDatabase(file){
+ if(!file)return;
+ try{
+  const raw=await file.text(),payload=JSON.parse(raw);
+  if(!payload||payload.format!=='ANGGARAN_DATABASE'||payload.app!=='ANGGARAN_TAHUNAN'||payload.schemaVersion!==1)throw new Error('File bukan Database Anggaran yang dikenali. Gunakan file hasil Ekspor Database dari aplikasi ini.');
+  if(!Number.isInteger(Number(payload.year))||Number(payload.year)<2000||Number(payload.year)>2100)throw new Error('Tahun anggaran pada file tidak valid.');
+  if(!Array.isArray(payload.data)||!Array.isArray(payload.structures))throw new Error('Isi database tidak lengkap atau rusak.');
+  const targetYear=Number(payload.year);
+  const importedDatabaseId=/^DB\d{6}$/.test(String(payload.databaseId||''))?String(payload.databaseId).toUpperCase():makeDatabaseId(payload.exportedAt?new Date(payload.exportedAt):new Date());
+  if(!confirm('Impor database '+importedDatabaseId+' Tahun Anggaran '+targetYear+'?\\n\\nData lokal untuk tahun tersebut akan DIGANTI dengan isi file. Data tahun lain tidak diubah. Pastikan Anda sudah mengekspor/cadangkan database lokal terlebih dahulu.'))return;
+  const normalized=payload.data.map(x=>{
+   if(!x||typeof x!=='object'||!x.account)throw new Error('Ada baris rekening yang tidak valid pada file database.');
+   const item={...x};
+   if(!Array.isArray(item.plan))item.plan=Array(12).fill(0);
+   if(!Array.isArray(item.actual))item.actual=Array(12).fill(0);
+   if(!item.components)item.components={};
+   if(item.originalBudget==null)item.originalBudget=Number(item.budget)||0;
+   if(item.budget==null)item.budget=Number(item.originalBudget)||0;
+   return item;
+  });
+  const spj=payload.spj&&typeof payload.spj==='object'?payload.spj:{};
+  localStorage.setItem('simAnggaranData_'+targetYear,JSON.stringify(normalized));
+  if(targetYear===2026)localStorage.setItem('simKontrolAnggaran2026_v8',JSON.stringify(normalized));
+  localStorage.setItem('simKontrolAnggaran2026_v9_structures',JSON.stringify(payload.structures));
+  localStorage.setItem('simSPJ_deferred_'+targetYear,JSON.stringify(spj.deferred||{}));
+  localStorage.setItem('simSPJ_manual_'+targetYear,JSON.stringify(spj.manual||{}));
+  localStorage.setItem('simAnggaranDatabaseId_'+targetYear,importedDatabaseId);
+  activeYear=targetYear;
+  localStorage.setItem('simAnggaranActiveYear',String(targetYear));
+  db=normalized;
+  structures=payload.structures;
+  spjDeferred=spj.deferred||{};
+  spjManual=spj.manual||{};
+  const sel=document.getElementById('yearSelect');if(sel)sel.value=String(targetYear);
+  render();
+  updateDatabaseBadge();
+  alert('Impor database '+importedDatabaseId+' berhasil. '+normalized.length+' rekening dan seluruh data rencana SPJ telah dimuat untuk Tahun Anggaran '+targetYear+'.');
+ }catch(e){alert('Impor database gagal: '+(e&&e.message?e.message:String(e)))}
+ const input=document.getElementById('databaseImportFile');if(input)input.value='';
+}
+
+function backup(){dl('backup-anggaran-'+activeYear+'.json',JSON.stringify(db,null,2),'application/json')}
+document.getElementById('yearSelect').value=String(activeYear);updateAppName();render();updateDatabaseBadge();
+</script></body></html>
