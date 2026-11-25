@@ -54,7 +54,7 @@
  @page{size:A4 landscape;margin:12mm}
 }
 
-/* v42.8.0: responsive mobile layout and new application identity */
+/* v42.10.0: responsive mobile layout and new application identity */
 .brand{display:flex;align-items:center;gap:10px;line-height:1.25}
 .brand-icon{width:42px;height:42px;flex:0 0 42px;object-fit:contain;border-radius:10px}
 .brand-title{display:block;min-width:0}
@@ -113,6 +113,22 @@ body{overflow-x:hidden}
   #view h1{font-size:19px}
 }
 
+
+.actual-detail-btn{border:1px solid #cbd5e1;background:#eff6ff;color:#1d4e89;border-radius:8px;padding:7px 10px;cursor:pointer;font-size:11px;font-weight:700;white-space:nowrap}
+.actual-detail-btn:hover{background:#dbeafe}
+.actual-detail-btn.has-details{background:#dcfce7;border-color:#86efac;color:#166534}
+.detail-modal{position:fixed;inset:0;background:#07132999;display:none;align-items:center;justify-content:center;padding:14px;z-index:20000}
+.detail-modal.open{display:flex}
+.detail-dialog{background:#fff;border-radius:14px;width:min(760px,100%);max-height:calc(100dvh - 28px);overflow:auto;padding:20px;box-shadow:0 20px 60px #07132955}
+.detail-dialog h2{margin:0 0 5px;font-size:19px}
+.detail-list{display:grid;gap:10px;margin-top:14px}
+.detail-entry{border:1px solid #dbe3ee;border-radius:10px;padding:12px;background:#f8fafc;display:grid;grid-template-columns:125px 1fr 150px 38px;gap:8px;align-items:end}
+.detail-entry .field{min-width:0}.detail-entry input,.detail-entry select,.detail-entry textarea{width:100%;min-width:0}.detail-entry textarea{min-height:58px;resize:vertical;border:1px solid #d8e0ec;border-radius:8px;padding:8px;font:inherit;grid-column:1/-1}
+.detail-entry .remove-detail{height:38px;border:0;border-radius:8px;background:#fee2e2;color:#991b1b;cursor:pointer}
+.detail-summary{background:#eff6ff;border:1px solid #bfdbfe;border-radius:9px;padding:10px;font-size:12px;margin-top:10px}
+.detail-actions{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;margin-top:15px}
+@media(max-width:600px){.detail-dialog{padding:14px}.detail-entry{grid-template-columns:1fr 1fr}.detail-entry .field:nth-child(2){grid-column:1/-1}.detail-entry textarea{grid-column:1/-1}.detail-entry .remove-detail{grid-column:2;justify-self:end;width:42px}}
+
 </style>
 
 
@@ -126,8 +142,10 @@ body{overflow-x:hidden}
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 
-</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.8.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
+</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.10.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
 <div class="modal" id="modal"><div class="dialog"><h2 id="mtitle">Edit Anggaran</h2><div id="mbody"></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Batal</button><button class="btn" id="modalSave" onclick="saveItem()">Simpan</button></div></div></div>
+
+<div class="detail-modal" id="actualDetailModal" onclick="if(event.target===this)closeActualDetails()"><div class="detail-dialog"><h2>Rincian Pencairan / Keterangan Realisasi</h2><div class="hint" id="actualDetailAccount"></div><div class="detail-summary" id="actualDetailSummary"></div><div class="detail-list" id="actualDetailList"></div><div class="detail-actions"><button class="btn secondary" type="button" onclick="addActualDetail()">+ Tambah rincian</button><div style="display:flex;gap:8px"><button class="btn secondary" type="button" onclick="closeActualDetails()">Batal</button><button class="btn" type="button" onclick="saveActualDetails()">Simpan Catatan</button></div></div></div></div>
 <script>
 const seed=[],months=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
 localStorage.removeItem('simKontrolAnggaran2026');
@@ -154,7 +172,7 @@ function saveManualSpj(m){let id=document.getElementById('manualAccount').value,
 function removeManualSpj(id,m){if(!confirm('Hapus rencana manual rekening ini dari bulan '+months[m]+'? Data rekening dan anggaran tidak akan dihapus.'))return;if(spjManual[m])delete spjManual[m][id];savePlanState();renderPlan()}
 
 let structures=JSON.parse(localStorage.getItem('simKontrolAnggaran2026_v9_structures')||'null')||[];
-db.forEach(x=>{if(!x.components)x.components={};if(x.originalBudget===undefined||x.originalBudget===null)x.originalBudget=+x.budget||0;if(x.budget===undefined)x.budget=+x.originalBudget||0;if(x.bidang===undefined)x.bidang='';if(x.program===undefined)x.program='';if(x.kegiatan===undefined)x.kegiatan='';if(x.subKegiatan===undefined)x.subKegiatan='';if(x.aktivitas===undefined)x.aktivitas=x.activity||'';if(x.keterangan===undefined)x.keterangan='';if(!Array.isArray(x.actualNotes))x.actualNotes=Array(12).fill('');});
+db.forEach(x=>{if(!x.components)x.components={};if(x.originalBudget===undefined||x.originalBudget===null)x.originalBudget=+x.budget||0;if(x.budget===undefined)x.budget=+x.originalBudget||0;if(x.bidang===undefined)x.bidang='';if(x.program===undefined)x.program='';if(x.kegiatan===undefined)x.kegiatan='';if(x.subKegiatan===undefined)x.subKegiatan='';if(x.aktivitas===undefined)x.aktivitas=x.activity||'';if(x.keterangan===undefined)x.keterangan='';if(!Array.isArray(x.actualNotes))x.actualNotes=Array(12).fill('');if(!Array.isArray(x.actualDetails))x.actualDetails=[];});
 if(!structures.length){let seen=new Set();db.forEach(x=>{let z={bidang:x.bidang||'',program:x.program||'',kegiatan:x.kegiatan||'',subKegiatan:x.subKegiatan||'',aktivitas:x.aktivitas||x.activity||''},k=JSON.stringify(z);if(!seen.has(k)&&Object.values(z).some(Boolean)){seen.add(k);structures.push({id:'STR'+Date.now()+Math.random(),...z})}})}
 db.forEach(x=>{if(!x.structureId){let z=structures.find(a=>a.bidang===(x.bidang||'')&&a.program===(x.program||'')&&a.kegiatan===(x.kegiatan||'')&&a.subKegiatan===(x.subKegiatan||'')&&a.aktivitas===(x.aktivitas||x.activity||''));if(z)x.structureId=z.id}});
 function persistStructures(){localStorage.setItem('simKontrolAnggaran2026_v9_structures',JSON.stringify(structures))}
@@ -162,7 +180,7 @@ const sum=a=>a.reduce((s,n)=>s+(+n||0),0),money=n=>'Rp '+(+n||0).toLocaleString(
 function persist(){localStorage.setItem('simAnggaranData_'+activeYear,JSON.stringify(db));if(activeYear===2026)localStorage.setItem('simKontrolAnggaran2026_v8',JSON.stringify(db));persistStructures()}
 function currentUnitName(){let a=db.find(x=>x.bidang&&x.bidang.trim()),z=structures.find(x=>x.bidang&&x.bidang.trim()),raw=(a?a.bidang.trim():z?z.bidang.trim():'Nama Bidang/UPT');/* Kode nomenklatur tetap tersimpan dan dipakai pada data; hanya disembunyikan dari judul aplikasi. */return raw.replace(/^\s*\d+(?:\.\d+)+\s*[-–:]?\s*/,'').trim()||'Nama Bidang/UPT'}
 function updateAppName(){let n=currentUnitName(),brand=document.getElementById('appBrand'),label=document.getElementById('yearLabel');if(brand)brand.innerHTML=`<img class="brand-icon" src="./icons/icon-192.png" alt="Logo Kontrol Anggaran"><span class="brand-title">ANGGARAN <span class="brand-unit">${esc(n)} ${activeYear}</span></span>`;if(label)label.textContent=`TA ${activeYear} · Lokal`;document.title=`Anggaran ${n} ${activeYear}`}
-function changeYear(value){let y=Number(value);if(!Number.isInteger(y)||y<2000||y>2100)return;persist();activeYear=y;localStorage.setItem('simAnggaranActiveYear',String(y));db=readYearData(y);db.forEach(x=>{if(!x.components)x.components={};if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);if(!Array.isArray(x.actualNotes))x.actualNotes=Array(12).fill('');if(x.originalBudget==null)x.originalBudget=+x.budget||0;if(x.budget==null)x.budget=+x.originalBudget||0});let sel=document.getElementById('yearSelect');if(sel)sel.value=String(y);updateAppName();render()}
+function changeYear(value){let y=Number(value);if(!Number.isInteger(y)||y<2000||y>2100)return;persist();activeYear=y;localStorage.setItem('simAnggaranActiveYear',String(y));db=readYearData(y);db.forEach(x=>{if(!x.components)x.components={};if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);if(!Array.isArray(x.actualNotes))x.actualNotes=Array(12).fill('');if(!Array.isArray(x.actualDetails))x.actualDetails=[];if(x.originalBudget==null)x.originalBudget=+x.budget||0;if(x.budget==null)x.budget=+x.originalBudget||0});let sel=document.getElementById('yearSelect');if(sel)sel.value=String(y);updateAppName();render()}
 function hierarchy(x,compact=false){let a=[['Bidang / UPT',x.bidang],['Program',x.program],['Kegiatan',x.kegiatan],['Sub Kegiatan',x.subKegiatan],['Aktivitas',x.aktivitas||x.activity]] .filter(v=>String(v[1]||'').trim());return a.length?a.map((v,i)=>`<div style="${compact?'font-size:11px;':''} ${i===a.length-1?'font-weight:700;':''}"><span style="color:#718096">${v[0]}:</span> ${esc(v[1])}</div>`).join(''):'<span style="color:#98a2b3">Belum diisi</span>'}
 document.addEventListener('input',e=>{if(e.target.classList.contains('money-input')){let p=e.target.selectionStart,old=e.target.value;e.target.value=formatNominal(old);if(document.activeElement===e.target){let delta=e.target.value.length-old.length;try{e.target.setSelectionRange(Math.max(0,p+delta),Math.max(0,p+delta))}catch(_){}}}});
 function total(k){return sum(db.map(x=>k==='budget'?x.budget:k==='originalBudget'?(x.originalBudget??x.budget):sum(x[k])))}
@@ -509,17 +527,18 @@ function actualTable(){
  const renderNode=n=>{
   const descendants=[];const gather=z=>{if(z.level===3)descendants.push(...[...z.accounts.values()].flatMap(g=>g.items));else [...z.children.values()].forEach(gather)};gather(n);
   const pure=agg(descendants,x=>x.originalBudget??x.budget),budget=agg(descendants,x=>x.budget);
-  let row=`<tr class="tree-node tree-${['program','kegiatan','subkegiatan','aktivitas'][n.level]}"><td><div style="display:flex;align-items:center;gap:8px;padding-left:${[0,18,36,54][n.level]}px"><span class="level-pill">${['Program','Kegiatan','Sub Kegiatan','Aktivitas'][n.level]}</span><b>${esc(n.label)}</b></div></td><td class="num">${money(pure)}</td>${hasNew?`<td class="num">${money(budget)}</td>`:''}${months.map(()=>'<td></td>').join('')}<td></td><td></td><td></td></tr>`;
+  let row=`<tr class="tree-node tree-${['program','kegiatan','subkegiatan','aktivitas'][n.level]}"><td><div style="display:flex;align-items:center;gap:8px;padding-left:${[0,18,36,54][n.level]}px"><span class="level-pill">${['Program','Kegiatan','Sub Kegiatan','Aktivitas'][n.level]}</span><b>${esc(n.label)}</b></div></td><td class="num">${money(pure)}</td>${hasNew?`<td class="num">${money(budget)}</td>`:''}${months.map(()=>'<td></td>').join('')}<td></td><td></td><td></td><td></td></tr>`;
   if(n.level===3){
    row+=[...n.accounts.values()].map(g=>{
     const items=g.items,p=agg(items,x=>x.originalBudget??x.budget),b=agg(items,x=>x.budget);
-    return `<tr class="tree-account"><td><div style="padding-left:58px"><b>${esc(g.account)}</b>${items.length>1?`<div class="hint">${items.length} jenis barang digabung dalam rekening ini</div>`:''}</div></td><td class="num">${money(p)}</td>${hasNew?`<td class="num">${money(b)}</td>`:''}${monthInputs(g)}<td class="num">${money(agg(items,spjSemester1Remaining))}</td><td class="num">${money(agg(items,spjSemester2Remaining))}</td><td class="num"><b>${money(agg(items,spjYearRemaining))}</b></td></tr>`;
+    const scope=encodeURIComponent(JSON.stringify([...labels(items[0]),g.account]));
+    return `<tr class="tree-account"><td><div style="padding-left:58px"><b>${esc(g.account)}</b>${items.length>1?`<div class="hint">${items.length} jenis barang digabung dalam rekening ini</div>`:''}</div></td><td class="num">${money(p)}</td>${hasNew?`<td class="num">${money(b)}</td>`:''}${monthInputs(g)}<td class="num">${money(agg(items,spjSemester1Remaining))}</td><td class="num">${money(agg(items,spjSemester2Remaining))}</td><td class="num"><b>${money(agg(items,spjYearRemaining))}</b></td><td><button class="actual-detail-btn ${((items[0].actualDetails||[]).length?'has-details':'')}" type="button" onclick="openActualDetails('${scope}')">${(items[0].actualDetails||[]).length?`Catatan ${(items[0].actualDetails||[]).length}`:'＋ Catatan'}</button></td></tr>`;
    }).join('');
   }else row+=[...n.children.values()].map(renderNode).join('');
   return row;
  };
  const body=[...root.children.values()].map(renderNode).join('');
- return `<div class="tablewrap"><table class="actual-year-table tree-table"><thead><tr><th>Program / Kegiatan / Sub Kegiatan / Aktivitas / Rekening</th><th class="num">Pagu Murni</th>${hasNew?'<th class="num">Pagu Baru</th>':''}${monthHeaders}<th class="num">Sisa Semester I</th><th class="num">Sisa Semester II</th><th class="num">Sisa Satu Tahun</th></tr></thead><tbody>${body||'<tr><td colspan="20" style="text-align:center;padding:24px">Belum ada data anggaran.</td></tr>'}</tbody><tfoot><tr><th>TOTAL</th><th class="num">${money(sum(db.map(x=>x.originalBudget??x.budget)))}</th>${hasNew?`<th class="num">${money(sum(db.map(x=>(+x.budget||0)!==(+x.originalBudget||0)?x.budget:0)))}</th>`:''}${months.map((m,i)=>`<th class="num">${money(sum(db.map(x=>x.actual[i]||0)))}</th>`).join('')}<th class="num">${money(sum(db.map(spjSemester1Remaining)))}</th><th class="num">${money(sum(db.map(spjSemester2Remaining)))}</th><th class="num"><b>${money(sum(db.map(spjYearRemaining)))}</b></th></tr></tfoot></table></div>`;
+ return `<div class="tablewrap"><table class="actual-year-table tree-table"><thead><tr><th>Program / Kegiatan / Sub Kegiatan / Aktivitas / Rekening</th><th class="num">Pagu Murni</th>${hasNew?'<th class="num">Pagu Baru</th>':''}${monthHeaders}<th class="num">Sisa Semester I</th><th class="num">Sisa Semester II</th><th class="num">Sisa Satu Tahun</th><th>Keterangan</th></tr></thead><tbody>${body||'<tr><td colspan="21" style="text-align:center;padding:24px">Belum ada data anggaran.</td></tr>'}</tbody><tfoot><tr><th>TOTAL</th><th class="num">${money(sum(db.map(x=>x.originalBudget??x.budget)))}</th>${hasNew?`<th class="num">${money(sum(db.map(x=>(+x.budget||0)!==(+x.originalBudget||0)?x.budget:0)))}</th>`:''}${months.map((m,i)=>`<th class="num">${money(sum(db.map(x=>x.actual[i]||0)))}</th>`).join('')}<th class="num">${money(sum(db.map(spjSemester1Remaining)))}</th><th class="num">${money(sum(db.map(spjSemester2Remaining)))}</th><th class="num"><b>${money(sum(db.map(spjYearRemaining)))}</b></th><th></th></tr></tfoot></table></div>`;
 }
 
 function setAccountActual(encodedScope,m,value){
@@ -549,6 +568,46 @@ function setAccountActualNote(encodedScope,m,value){
  const matches=db.filter(x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas',x.account||'Tanpa Rekening'].map(norm).join('|')===scope.map(norm).join('|'));
  matches.forEach(x=>{if(!Array.isArray(x.actualNotes))x.actualNotes=Array(12).fill('');x.actualNotes[m]=String(value??'').trim()});
  persist();
+}
+
+let actualDetailMatches=[],actualDetailDraft=[];
+function openActualDetails(encodedScope){
+ const scope=JSON.parse(decodeURIComponent(encodedScope));
+ const norm=v=>String(v??'').trim().replace(/\s+/g,' ').toLowerCase();
+ actualDetailMatches=db.filter(x=>[x.program||'Tanpa Program',x.kegiatan||'Tanpa Kegiatan',x.subKegiatan||'Tanpa Sub Kegiatan',x.aktivitas||x.activity||'Tanpa Aktivitas',x.account||'Tanpa Rekening'].map(norm).join('|')===scope.map(norm).join('|'));
+ if(!actualDetailMatches.length)return;
+ const first=actualDetailMatches[0];
+ actualDetailDraft=JSON.parse(JSON.stringify(first.actualDetails||[]));
+ document.getElementById('actualDetailAccount').textContent=[first.aktivitas||first.activity,first.account].filter(Boolean).join(' — ');
+ renderActualDetailDraft();
+ document.getElementById('actualDetailModal').classList.add('open');
+}
+function closeActualDetails(){document.getElementById('actualDetailModal').classList.remove('open');actualDetailMatches=[];actualDetailDraft=[]}
+function addActualDetail(){actualDetailDraft.push({month:new Date().getMonth(),date:new Date().toISOString().slice(0,10),event:'',amount:0,description:''});renderActualDetailDraft()}
+function renderActualDetailDraft(){
+ const list=document.getElementById('actualDetailList');
+ list.innerHTML=actualDetailDraft.map((d,i)=>`<div class="detail-entry">
+  <div class="field"><label>Bulan realisasi</label><select onchange="updateActualDetail(${i},'month',Number(this.value))">${months.map((m,j)=>`<option value="${j}" ${Number(d.month)===j?'selected':''}>${m}</option>`).join('')}</select></div>
+  <div class="field"><label>Tanggal pencairan</label><input type="date" value="${esc(d.date||'')}" onchange="updateActualDetail(${i},'date',this.value)"></div>
+  <div class="field"><label>Nominal acara (Rp)</label><input type="text" inputmode="numeric" value="${formatNominal(d.amount||0)}" placeholder="0" onchange="updateActualDetail(${i},'amount',parseNominal(this.value))"></div>
+  <div class="field"><label>Nama acara / penerima</label><input type="text" value="${esc(d.event||'')}" placeholder="Contoh: Acara 1" onchange="updateActualDetail(${i},'event',this.value)"></div>
+  <textarea placeholder="Keterangan tambahan: nomor SP2D, tanggal transfer, termin, dan lain-lain" onchange="updateActualDetail(${i},'description',this.value)">${esc(d.description||'')}</textarea>
+  <button class="remove-detail" type="button" title="Hapus rincian" onclick="removeActualDetail(${i})">✕</button>
+ </div>`).join('')||'<div class="note">Belum ada rincian pencairan. Klik Tambah rincian untuk mencatat acara.</div>';
+ const total=sum(actualDetailDraft.map(d=>Number(d.amount)||0));
+ const monthTotals=months.map((m,i)=>sum(actualDetailDraft.filter(d=>Number(d.month)===i).map(d=>Number(d.amount)||0)));
+ const actualMonths=Array.from({length:12},(_,i)=>sum(actualDetailMatches.map(x=>(x.actual||[])[i]||0)));
+ document.getElementById('actualDetailSummary').innerHTML=`Total rincian acara: <b>${money(total)}</b><br>${months.map((m,i)=>monthTotals[i]?`${m}: ${money(monthTotals[i])} (realisasi rekening: ${money(actualMonths[i])})`: '').filter(Boolean).join(' · ')||'Belum ada nominal rincian.'}<br><span style="color:#64748b">Nominal rincian ini merupakan catatan pembagian pencairan; tidak mengubah angka realisasi bulanan secara otomatis.</span>`;
+}
+function updateActualDetail(i,k,v){if(!actualDetailDraft[i])return;actualDetailDraft[i][k]=v;renderActualDetailDraft()}
+function removeActualDetail(i){actualDetailDraft.splice(i,1);renderActualDetailDraft()}
+function saveActualDetails(){
+ if(!actualDetailMatches.length)return;
+ const cleaned=actualDetailDraft.map(d=>({month:Math.max(0,Math.min(11,Number(d.month)||0)),date:String(d.date||''),event:String(d.event||'').trim(),amount:Math.max(0,Math.round(Number(d.amount)||0)),description:String(d.description||'').trim()})).filter(d=>d.event||d.amount||d.description||d.date);
+ actualDetailMatches[0].actualDetails=cleaned;
+ // Store the same list on matching source rows to keep grouped-account records consistent.
+ actualDetailMatches.slice(1).forEach(x=>{x.actualDetails=[]});
+ persist();closeActualDetails();if(page==='realisasi')renderActual();
 }
 
 function exportActualRecapExcel(){
@@ -629,19 +688,33 @@ function exportActualDetailExcel(){
    let node=roots;
    levels(x).forEach((label,idx)=>{
     const key=norm(label);
-    if(!node.has(key))node.set(key,{label,level:idx,children:new Map(),accounts:new Map(),items:[]});
+    if(!node.has(key))node.set(key,{label,level:idx,children:new Map(),items:[]});
     const n=node.get(key);n.items.push(x);node=n.children;
    });
-    let n=roots;
-   levels(x).forEach(label=>n=n.get(norm(label)).children);
    const accountKey=norm(x.account||'Tanpa Rekening');
-   if(!n.has(accountKey))n.set(accountKey,{label:x.account||'Tanpa Rekening',level:4,items:[]});
-   n.get(accountKey).items.push(x);
+   if(!node.has(accountKey))node.set(accountKey,{label:x.account||'Tanpa Rekening',level:4,items:[]});
+   node.get(accountKey).items.push(x);
   });
-  const hasNew=db.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
-  const headers=['URAIAN','PAGU MURNI','PAGU PAPBD',...months.map(m=>'REALISASI '+m.toUpperCase()),'TOTAL REALISASI','SISA ANGGARAN',...months.map(m=>'CATATAN '+m.toUpperCase())];
-  const rows=[['REKAP RINCI REALISASI ANGGARAN TAHUN '+activeYear],['Pagu PAPBD menggunakan nilai pagu baru yang tersimpan pada aplikasi.'],headers];
-  const fmtNotes=items=>months.map((m,i)=>[...new Set(items.map(x=>(x.actualNotes||[])[i]||'').map(v=>String(v).trim()).filter(Boolean))].join(' | '));
+  const headers=['URAIAN','PAGU MURNI','PAGU PAPBD',...months.map(m=>'REALISASI '+m.toUpperCase()),'TOTAL REALISASI','SISA ANGGARAN','KETERANGAN'];
+  const rows=[['REKAP RINCI REALISASI ANGGARAN TAHUN '+activeYear],['Kolom Keterangan memuat catatan bulanan dan rincian pencairan/acara yang diinput melalui popup Catatan.'],headers];
+  const fmt=v=>Number(v||0);
+  const makeKeterangan=items=>{
+   const lines=[];
+   // Capture free-text notes entered under each monthly realization field.
+   months.forEach((month,i)=>{
+    const notes=[...new Set(items.map(x=>(x.actualNotes||[])[i]||'').map(v=>String(v).trim()).filter(Boolean))];
+    notes.forEach(note=>lines.push(`${month}: ${note}`));
+   });
+   // Capture popup disbursement details in the same rightmost KETERANGAN cell.
+   const seen=new Set();
+   items.forEach(x=>(x.actualDetails||[]).forEach(d=>{
+    const month=months[Math.max(0,Math.min(11,Number(d.month)||0))];
+    const line=[month,d.date||'',d.event||'Tanpa nama acara',money(d.amount||0),d.description||''].filter(Boolean).join(' — ');
+    const key=line.toLowerCase();
+    if(!seen.has(key)){seen.add(key);lines.push(line);}
+   }));
+   return lines.join('\n');
+  };
   const metrics=items=>{
    const pure=sum(items.map(x=>x.originalBudget??x.budget));
    const papbd=sum(items.map(x=>x.budget));
@@ -649,22 +722,20 @@ function exportActualDetailExcel(){
    const actual=sum(monthly);
    return [pure,papbd,...monthly,actual,papbd-actual];
   };
-  const addTree=(map,path=[])=>{
+  const addTree=map=>{
    for(const n of map.values()){
     const isAccount=n.level===4;
-    const items=n.items||[];
     const indent='　'.repeat(n.level);
-    const vals=metrics(items);
-    const notes=isAccount?fmtNotes(items):Array(12).fill('');
-    rows.push([indent+n.label,...vals,...notes]);
-    if(!isAccount)addTree(n.children,path.concat(n.label));
+    const vals=metrics(n.items||[]);
+    const keterangan=isAccount?makeKeterangan(n.items||[]):'';
+    rows.push([indent+n.label,...vals,keterangan]);
+    if(!isAccount)addTree(n.children);
    }
   };
   addTree(roots);
-  const totals=metrics(db);
-  rows.push(['TOTAL',...totals,...Array(12).fill('')]);
+  rows.push(['TOTAL',...metrics(db),'']);
   const ws=XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols']=[{wch:76},{wch:20},{wch:20},...months.map(()=>({wch:17})),{wch:20},{wch:20},...months.map(()=>({wch:32}))];
+  ws['!cols']=[{wch:76},{wch:20},{wch:20},...months.map(()=>({wch:17})),{wch:20},{wch:20},{wch:65}];
   ws['!freeze']={xSplit:1,ySplit:3};
   ws['!autofilter']={ref:`A3:${XLSX.utils.encode_col(headers.length-1)}${rows.length-1}`};
   const border={top:{style:'thin',color:{rgb:'CBD5E1'}},bottom:{style:'thin',color:{rgb:'CBD5E1'}},left:{style:'thin',color:{rgb:'CBD5E1'}},right:{style:'thin',color:{rgb:'CBD5E1'}}};
@@ -674,13 +745,14 @@ function exportActualDetailExcel(){
    const isTotal=r===rows.length-1;
    for(let c=0;c<headers.length;c++){
     const cell=ws[XLSX.utils.encode_cell({r,c})];if(!cell)continue;
-    cell.s={border,alignment:{vertical:'center',wrapText:c===0||c>=headers.length-12,horizontal:c===0||c>=headers.length-12?'left':'right'},...(c>0&&c<headers.length-12?{numFmt:'#,##0'}:{})};
+    cell.s={border,alignment:{vertical:'top',wrapText:c===0||c===headers.length-1,horizontal:c===0||c===headers.length-1?'left':'right'},...(c>0&&c<headers.length-1?{numFmt:'#,##0'}:{})};
     if(isTotal)cell.s={...cell.s,font:{bold:true},fill:{fgColor:{rgb:'E2E8F0'}}};
     else if(c===0){const depth=(String(rows[r][0]).match(/^　*/)||[''])[0].length;cell.s={...cell.s,font:{bold:depth<=2},fill:{fgColor:{rgb:depth===0?'DCE8F5':depth===1?'EAF1FA':depth===2?'F2F6FB':'FFFFFF'}}};}
    }
   }
   ws['!merges']=[{s:{r:0,c:0},e:{r:0,c:headers.length-1}},{s:{r:1,c:0},e:{r:1,c:headers.length-1}}];
-  const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Realisasi Rinci');
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Realisasi Rinci');
   XLSX.writeFile(wb,`Realisasi-Anggaran-Rinci-${activeYear}.xlsx`);
  }catch(err){console.error('Ekspor Excel Rinci gagal:',err);alert('Ekspor Excel Rinci gagal: '+(err&&err.message?err.message:String(err)));}
 }
@@ -1267,6 +1339,7 @@ async function importDatabase(file){
    if(!Array.isArray(item.plan))item.plan=Array(12).fill(0);
    if(!Array.isArray(item.actual))item.actual=Array(12).fill(0);
    if(!Array.isArray(item.actualNotes))item.actualNotes=Array(12).fill('');
+   if(!Array.isArray(item.actualDetails))item.actualDetails=[];
    if(!item.components)item.components={};
    if(item.originalBudget==null)item.originalBudget=Number(item.budget)||0;
    if(item.budget==null)item.budget=Number(item.originalBudget)||0;
