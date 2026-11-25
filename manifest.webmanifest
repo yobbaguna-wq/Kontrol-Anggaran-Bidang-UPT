@@ -1,14 +1,15 @@
 {
   "id": "./",
-  "name": "Kontrol Anggaran Bidang UPT Jawa Timur",
+  "name": "Kontrol Anggaran Bidang UPT",
   "short_name": "Kontrol Anggaran",
-  "description": "Aplikasi kontrol anggaran, rencana SPJ, dan realisasi bulanan Bidang/UPT.",
+  "description": "Aplikasi kontrol anggaran, breakdown bulanan, rencana SPJ dan realisasi anggaran.",
   "lang": "id-ID",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1730",
-  "theme_color": "#0b1730",
+  "orientation": "any",
+  "background_color": "#f3f6fb",
+  "theme_color": "#101c35",
   "icons": [
     {
       "src": "./icons/icon-192.png",

@@ -53,14 +53,80 @@
  body.spj-printing #printPlanArea .printbar{display:none!important}
  @page{size:A4 landscape;margin:12mm}
 }
-</style>
-<meta name="theme-color" content="#0b1730">
-<meta name="application-name" content="Kontrol Anggaran Bidang UPT">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
 
-</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.6.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
+/* v42.7.0: responsive mobile layout and new application identity */
+.brand{display:flex;align-items:center;gap:10px;line-height:1.25}
+.brand-icon{width:42px;height:42px;flex:0 0 42px;object-fit:contain;border-radius:10px}
+.brand-title{display:block;min-width:0}
+.brand-unit{color:#54d6d0}
+#view{min-width:0;width:100%}
+.content,.panel,.card,.grid2,.cards{min-width:0;max-width:100%}
+body{overflow-x:hidden}
+.tablewrap{width:100%;max-width:100%;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.nav{scrollbar-width:thin;scrollbar-color:#52698f transparent}
+@media(max-width:700px){
+  .app{display:block;width:100%;min-height:100vh}
+  .side{width:100%;padding:12px 12px 9px}
+  .brand{font-size:15px;align-items:center}
+  .brand-icon{width:40px;height:40px;flex-basis:40px}
+  .brand-title{font-size:15px;line-height:1.3}
+  .brand-unit{display:inline}
+  .sub{display:none}
+  .nav{display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:8px 0 3px;scroll-snap-type:x proximity}
+  .nav button{display:inline-flex;align-items:center;flex:0 0 auto;width:auto;min-height:40px;padding:9px 12px;margin:0;font-size:13px;scroll-snap-align:start}
+  .foot{display:none}
+  .main{width:100%;min-width:0}
+  .top{height:auto;min-height:0;width:100%;padding:10px 12px;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap}
+  #title{display:none}
+  .year-tools{width:100%;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .year-tools label{flex:0 0 auto;font-size:12px}
+  .year-tools select{flex:1 1 90px;min-width:90px;max-width:130px;padding:9px 8px}
+  .year-tools .btn{flex:1 1 calc(50% - 8px);min-width:0;padding:10px 8px;font-size:12px;white-space:normal;line-height:1.25}
+  .content{padding:14px 12px 28px;width:100%;overflow-x:hidden}
+  #view h1{font-size:21px;line-height:1.25;margin:0 0 8px;overflow-wrap:anywhere}
+  #view .desc{font-size:13px;line-height:1.55;margin-bottom:15px}
+  .cards{grid-template-columns:1fr;gap:10px}
+  .card,.panel{padding:13px;border-radius:12px}
+  .grid2{grid-template-columns:1fr;gap:11px}
+  .head{align-items:flex-start;flex-wrap:wrap}
+  .toolbar{width:100%;gap:7px}
+  .toolbar .btn{flex:1 1 auto;min-width:0}
+  .monthgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .formgrid{grid-template-columns:1fr;gap:10px}
+  input,select{max-width:100%}
+  input[type=number]{width:100%;max-width:100%}
+  .search{min-width:0;width:100%}
+  .tablewrap{max-height:65vh}
+  .tablewrap table{font-size:12px}
+  .tablewrap th,.tablewrap td{padding:8px 7px}
+  .breakdown-global-table,.actual-year-table,.spj-plan-table{max-width:none}
+  .modal .dialog{max-height:calc(100dvh - 20px)}
+}
+@media(max-width:390px){
+  .brand-title{font-size:13px}
+  .brand-icon{width:36px;height:36px;flex-basis:36px}
+  .nav button{font-size:12px;padding:8px 10px}
+  .content{padding-left:10px;padding-right:10px}
+  .year-tools label{width:100%}
+  .year-tools select{max-width:none;flex:1 1 100%}
+  .year-tools .btn{flex:1 1 100%}
+  #view h1{font-size:19px}
+}
+
+</style>
+
+
+
+<meta name="theme-color" content="#101c35">
+<meta name="application-name" content="Kontrol Anggaran">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kontrol Anggaran">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+
+</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.7.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
 <div class="modal" id="modal"><div class="dialog"><h2 id="mtitle">Edit Anggaran</h2><div id="mbody"></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Batal</button><button class="btn" id="modalSave" onclick="saveItem()">Simpan</button></div></div></div>
 <script>
 const seed=[],months=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
@@ -95,7 +161,7 @@ function persistStructures(){localStorage.setItem('simKontrolAnggaran2026_v9_str
 const sum=a=>a.reduce((s,n)=>s+(+n||0),0),money=n=>'Rp '+(+n||0).toLocaleString('id-ID',{maximumFractionDigits:0}),parseNominal=v=>Number(String(v??'').replace(/[^0-9]/g,''))||0,formatNominal=v=>{let n=String(v??'').replace(/[^0-9]/g,'');return n?n.replace(/\B(?=(\d{3})+(?!\d))/g,'.'):''},pct=(a,b)=>b?a/b*100:0,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function persist(){localStorage.setItem('simAnggaranData_'+activeYear,JSON.stringify(db));if(activeYear===2026)localStorage.setItem('simKontrolAnggaran2026_v8',JSON.stringify(db));persistStructures()}
 function currentUnitName(){let a=db.find(x=>x.bidang&&x.bidang.trim()),z=structures.find(x=>x.bidang&&x.bidang.trim()),raw=(a?a.bidang.trim():z?z.bidang.trim():'Nama Bidang/UPT');/* Kode nomenklatur tetap tersimpan dan dipakai pada data; hanya disembunyikan dari judul aplikasi. */return raw.replace(/^\s*\d+(?:\.\d+)+\s*[-–:]?\s*/,'').trim()||'Nama Bidang/UPT'}
-function updateAppName(){let n=currentUnitName(),brand=document.getElementById('appBrand'),label=document.getElementById('yearLabel');if(brand)brand.innerHTML=`ANGGARAN <span style="color:#54d6d0">${esc(n)} ${activeYear}</span>`;if(label)label.textContent=`TA ${activeYear} · Lokal`;document.title=`Anggaran ${n} ${activeYear}`}
+function updateAppName(){let n=currentUnitName(),brand=document.getElementById('appBrand'),label=document.getElementById('yearLabel');if(brand)brand.innerHTML=`<img class="brand-icon" src="./icons/icon-192.png" alt="Logo Kontrol Anggaran"><span class="brand-title">ANGGARAN <span class="brand-unit">${esc(n)} ${activeYear}</span></span>`;if(label)label.textContent=`TA ${activeYear} · Lokal`;document.title=`Anggaran ${n} ${activeYear}`}
 function changeYear(value){let y=Number(value);if(!Number.isInteger(y)||y<2000||y>2100)return;persist();activeYear=y;localStorage.setItem('simAnggaranActiveYear',String(y));db=readYearData(y);db.forEach(x=>{if(!x.components)x.components={};if(!Array.isArray(x.plan))x.plan=Array(12).fill(0);if(!Array.isArray(x.actual))x.actual=Array(12).fill(0);if(x.originalBudget==null)x.originalBudget=+x.budget||0;if(x.budget==null)x.budget=+x.originalBudget||0});let sel=document.getElementById('yearSelect');if(sel)sel.value=String(y);updateAppName();render()}
 function hierarchy(x,compact=false){let a=[['Bidang / UPT',x.bidang],['Program',x.program],['Kegiatan',x.kegiatan],['Sub Kegiatan',x.subKegiatan],['Aktivitas',x.aktivitas||x.activity]] .filter(v=>String(v[1]||'').trim());return a.length?a.map((v,i)=>`<div style="${compact?'font-size:11px;':''} ${i===a.length-1?'font-weight:700;':''}"><span style="color:#718096">${v[0]}:</span> ${esc(v[1])}</div>`).join(''):'<span style="color:#98a2b3">Belum diisi</span>'}
 document.addEventListener('input',e=>{if(e.target.classList.contains('money-input')){let p=e.target.selectionStart,old=e.target.value;e.target.value=formatNominal(old);if(document.activeElement===e.target){let delta=e.target.value.length-old.length;try{e.target.setSelectionRange(Math.max(0,p+delta),Math.max(0,p+delta))}catch(_){}}}});
