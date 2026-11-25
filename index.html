@@ -54,7 +54,7 @@
  @page{size:A4 landscape;margin:12mm}
 }
 
-/* v42.11.0: responsive mobile layout and new application identity */
+/* v42.13.0: responsive mobile layout and new application identity */
 .brand{display:flex;align-items:center;gap:10px;line-height:1.25}
 .brand-icon{width:42px;height:42px;flex:0 0 42px;object-fit:contain;border-radius:10px}
 .brand-title{display:block;min-width:0}
@@ -153,7 +153,7 @@ body{overflow-x:hidden}
 <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 
-</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.11.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
+</head><body><div class="app"><aside class="side"><div class="brand" id="appBrand">ANGGARAN <span style="color:#54d6d0">2026</span></div><div class="sub">Kontrol Anggaran & Rencana SPJ</div><nav class="nav"><button class="active" data-p="dashboard">▦　Dashboard</button><button data-p="rekening">▤　Data Anggaran</button><button data-p="breakdown">▦　Breakdown Bulanan</button><button data-p="rencana">▣　Rencana SPJ Bulanan</button><button data-p="realisasi">↗　Realisasi Anggaran</button><button data-p="laporan">▥　Rekap Tahunan</button></nav><div class="foot">Design by: <b>yb_wiguna</b> · v42.13.0<br><span id="databaseBadge">Database: DB—</span></div></aside><main class="main"><header class="top"><b id="title">Dashboard Kontrol Anggaran</b><div class="year-tools"><label for="yearSelect">Tahun Anggaran</label><select id="yearSelect" onchange="changeYear(this.value)"><option value="2024" >2024</option><option value="2025" >2025</option><option value="2026" selected>2026</option><option value="2027" >2027</option><option value="2028" >2028</option><option value="2029" >2029</option><option value="2030" >2030</option><option value="2031" >2031</option><option value="2032" >2032</option><option value="2033" >2033</option><option value="2034" >2034</option><option value="2035" >2035</option><option value="2036" >2036</option><option value="2037" >2037</option><option value="2038" >2038</option><option value="2039" >2039</option><option value="2040" >2040</option><option value="2041" >2041</option><option value="2042" >2042</option><option value="2043" >2043</option><option value="2044" >2044</option><option value="2045" >2045</option><option value="2046" >2046</option><option value="2047" >2047</option><option value="2048" >2048</option><option value="2049" >2049</option><option value="2050" >2050</option></select><button class="btn secondary" type="button" onclick="exportDatabase()">Ekspor Database</button><button class="btn secondary" type="button" onclick="document.getElementById('databaseImportFile').click()">Impor Database</button><input id="databaseImportFile" type="file" accept=".json,application/json" style="display:none" onchange="importDatabase(this.files[0])"><small id="yearLabel">TA 2026 · Lokal</small></div></header><section id="view" class="content"></section></main></div>
 <div class="modal" id="modal"><div class="dialog"><h2 id="mtitle">Edit Anggaran</h2><div id="mbody"></div><div class="actions"><button class="btn secondary" onclick="closeModal()">Batal</button><button class="btn" id="modalSave" onclick="saveItem()">Simpan</button></div></div></div>
 
 <div class="detail-modal" id="actualCellNoteModal" onclick="if(event.target===this)closeActualCellNote()"><div class="detail-dialog note-cell-dialog"><h2 id="actualCellNoteTitle">Catatan Realisasi</h2><div class="note-cell-meta" id="actualCellNoteMeta"></div><textarea id="actualCellNoteText" placeholder="Tuliskan catatan pencairan, nama acara, nomor SP2D, tanggal transfer, termin, atau informasi lainnya..."></textarea><div class="detail-actions"><button class="btn secondary" type="button" onclick="closeActualCellNote()">Batal</button><button class="btn" type="button" onclick="saveActualCellNote()">Simpan Catatan</button></div></div></div>
@@ -646,6 +646,22 @@ function saveActualDetails(){
  persist();closeActualDetails();if(page==='realisasi')renderActual();
 }
 
+function makeActualExportKeterangan(items){
+ const lines=[];
+ months.forEach((month,i)=>{
+  const notes=[...new Set((items||[]).map(x=>(x.actualNotes||[])[i]||'').map(v=>String(v).trim()).filter(Boolean))];
+  notes.forEach(note=>lines.push(`${month}: ${note}`));
+ });
+ const seen=new Set();
+ (items||[]).forEach(x=>(x.actualDetails||[]).forEach(d=>{
+  const month=months[Math.max(0,Math.min(11,Number(d.month)||0))];
+  const line=[month,d.date||'',d.event||'Tanpa nama acara',money(d.amount||0),d.description||''].filter(Boolean).join(' — ');
+  const key=line.toLowerCase();
+  if(!seen.has(key)){seen.add(key);lines.push(line);}
+ }));
+ return lines.join('\n');
+}
+
 function exportActualRecapExcel(){
  const rows=db;
  const hasPapbd=rows.some(x=>(+x.budget||0)!==(+x.originalBudget||0));
@@ -667,7 +683,7 @@ function exportActualRecapExcel(){
    const pure=sum(members.map(y=>y.originalBudget??y.budget));
    const papbd=sum(members.map(y=>y.budget));
    const actual=sum(members.map(y=>sum(y.actual||[])));
-   records.push({label,level:idx,pure,papbd,actual,remaining:papbd-actual});
+   records.push({label,level:idx,pure,papbd,actual,remaining:papbd-actual,members});
   });
  });
  const totalPure=sum(rows.map(x=>x.originalBudget??x.budget));
@@ -676,15 +692,21 @@ function exportActualRecapExcel(){
  const headers=['URAIAN','PAGU MURNI',...(hasPapbd?['PAPBD 1']:[]),'REALISASI','SISA ANGGARAN','KETERANGAN'];
  const escHtml=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
  const fmt=v=>Number(v||0).toLocaleString('id-ID');
- const cols=headers.map((_,i)=>i===0?'<col style="width:570pt">':'<col style="width:115pt">').join('');
+ const cols=headers.map((_,i)=>i===0?'<col style="width:570pt">':i===headers.length-1?'<col style="width:300pt">':'<col style="width:115pt">').join('');
  const header=`<tr>${headers.map(x=>`<th>${escHtml(x)}</th>`).join('')}</tr>`;
  const body=records.map(r=>{
-  const vals=[{text:r.label,level:r.level},fmt(r.pure),...(hasPapbd?[fmt(r.papbd)]:[]),fmt(r.actual),fmt(r.remaining),''];
+  // Catatan ditempatkan pada baris rekening yang tepat (bukan pada baris hirarki).
+  // Ambil seluruh anggota rekening yang sama dalam satu aktivitas agar catatan tidak terlewat.
+  const note=r.level===4?makeActualExportKeterangan(
+   (r.members||[]).filter(x=>String(x.account||'').trim().toLowerCase()===String(r.label||'').trim().toLowerCase())
+  ):'';
+  const vals=[{text:r.label,level:r.level},fmt(r.pure),...(hasPapbd?[fmt(r.papbd)]:[]),fmt(r.actual),fmt(r.remaining),note];
   return `<tr>${vals.map((v,i)=>{
    const text=typeof v==='object'?v.text:v;
    const isLabel=i===0,level=isLabel?v.level:-1;
    const style=isLabel
     ?`text-align:left;padding-left:${level*18+5}px;font-weight:${level<=2?'bold':'normal'};font-style:${level===3?'italic':'normal'};`
+    :i===vals.length-1?`text-align:left;white-space:pre-wrap;vertical-align:top;mso-wrap-text:yes;`
     :'text-align:right;mso-number-format:"\\#\\,\\#\\#0";';
    return `<td style="${style}">${escHtml(text)}</td>`;
   }).join('')}</tr>`;
@@ -734,23 +756,7 @@ function exportActualDetailExcel(){
   const headers=['URAIAN','PAGU MURNI','PAGU PAPBD',...months.map(m=>'REALISASI '+m.toUpperCase()),'TOTAL REALISASI','SISA ANGGARAN','KETERANGAN'];
   const rows=[['REKAP RINCI REALISASI ANGGARAN TAHUN '+activeYear],['Kolom Keterangan memuat catatan bulanan dan rincian pencairan/acara yang diinput melalui popup Catatan.'],headers];
   const fmt=v=>Number(v||0);
-  const makeKeterangan=items=>{
-   const lines=[];
-   // Capture free-text notes entered under each monthly realization field.
-   months.forEach((month,i)=>{
-    const notes=[...new Set(items.map(x=>(x.actualNotes||[])[i]||'').map(v=>String(v).trim()).filter(Boolean))];
-    notes.forEach(note=>lines.push(`${month}: ${note}`));
-   });
-   // Capture popup disbursement details in the same rightmost KETERANGAN cell.
-   const seen=new Set();
-   items.forEach(x=>(x.actualDetails||[]).forEach(d=>{
-    const month=months[Math.max(0,Math.min(11,Number(d.month)||0))];
-    const line=[month,d.date||'',d.event||'Tanpa nama acara',money(d.amount||0),d.description||''].filter(Boolean).join(' — ');
-    const key=line.toLowerCase();
-    if(!seen.has(key)){seen.add(key);lines.push(line);}
-   }));
-   return lines.join('\n');
-  };
+  const makeKeterangan=makeActualExportKeterangan;
   const metrics=items=>{
    const pure=sum(items.map(x=>x.originalBudget??x.budget));
    const papbd=sum(items.map(x=>x.budget));
